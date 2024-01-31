@@ -7,28 +7,28 @@ Star Wars Imperial Assaul campaign.
 
 ## Technology Stack
 
--**Frontend**:
-    - Main Programming Language: JavaScript
-    - React.js - A JavaScript library for building user interfaces.
-    - Tailwind CSS - for style and responsive UI components.
+**Frontend**:
+- Main Programming Language: JavaScript
+- React.js : A JavaScript library for building user interfaces.
+- Tailwind CSS : for style and responsive UI components.
 
--**Backend**:
-    - Node.js - JavaScript runtime for the backend.
-    - Express.js - Web Application framework for Node.js.
-    - Firebase DB & Auth - For storing user data and user authentication.
+**Backend**:
+- Node.js : JavaScript runtime for the backend.
+- Express.js : Web Application framework for Node.js.
+- Firebase DB & Auth : For storing user data and user authentication.
 
--**Tools and Libraries**:
-    - Git - for version control.
+**Tools and Libraries**:
+- Git : for version control.
 
--**Development Tools**:
-    - VS Code - code editor
-    - Open AI's GPT-4 - coding assistance and problem solving
+**Development Tools**:
+- VS Code : code editor
+- Open AI's GPT-4 : coding assistance and problem solving
 
--**Recommended VS Code Extensions**:
-    - Prettier - code formatter
+**Recommended VS Code Extensions**:
+- Prettier : code formatter
 
--**Hosting**:
-    - Digital Ocean Cloud Services
+**Hosting**:
+- Digital Ocean Cloud Services
 
 ## Licence
 
