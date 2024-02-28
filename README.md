@@ -3,18 +3,18 @@
 
 ## Description
 This web app will enable users to track important information about their 
-Star Wars Imperial Assaul campaign. 
+Star Wars Imperial Assault campaign. 
 
 ## Technology Stack
 
 **Frontend**:
 - Main Programming Language: JavaScript
-- React.js : A JavaScript library for building user interfaces.
+- React : A JavaScript library for building user interfaces.
 - Tailwind CSS : for style and responsive UI components.
 
 **Backend**:
 - Node.js : JavaScript runtime for the backend.
-- Express.js : Web Application framework for Node.js.
+- Next.js : Web Application framework for Node.js.
 - Firebase DB & Auth : For storing user data and user authentication.
 
 **Tools and Libraries**:
