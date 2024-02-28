@@ -1,0 +1,12 @@
+blue: #2DC3EB
+lightest gray: #C8CED5
+Gray 2nd lightest:#A99796
+Gray 2nd darkest: #726668
+Gray darkest:#44383D
+black: #1B1416\
+
+dark blue: #06436B, #1B3A4E
+Light blue: #0FBDDB
+Light gray: #CCDCE4
+Dark gray: #416477
+
