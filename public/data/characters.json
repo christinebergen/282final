@@ -1,90 +1,350 @@
-
 {
-    "Diala Passil": {
-        "Starting weapon": "Plasteel Staff",
-        "Value": 50,
-        "Attachments": {
-            "Force Throw": 1,
-            "Force Adept": 1,
-            "Dancing Weapon": 4,
-            "Art of Movement": 3,
-            "Defensive Stance": 2,
-            "Battle Meditation": 2,
-            "Way of the Sarlacc": 4,
-            "Snap Kick": 3
-        },
-        "Side Mission": "Temptation",
-        "Reward": "Shu Yen's Lightsaber"
+  "Diala Passil": {
+    "Starting weapon": "Plasteel Staff",
+    "Value": 100,
+    "Attachments": {
+      "Force Throw": 1,
+      "Force Adept": 1,
+      "Dancing Weapon": 4,
+      "Art of Movement": 3,
+      "Defensive Stance": 2,
+      "Battle Meditation": 2,
+      "Way of the Sarlacc": 4,
+      "Snap Kick": 3
     },
-    "Gideon Argus": {
-        "Starting weapon": "Holdout Blaster",
-        "Value": 50,
-        "Attachments": {
-            "Called Shot": 1,
-            "Military Efficiency": 1,
-            "Mobile Tactician": 2,
-            "Air of Command": 2,
-            "Rallying Shout": 3,
-            "Hammer and Anvil": 4,
-            "Masterstroke": 4
-        }
-    },
-    "Fenn Signis": {
-        "Starting weapon": "Infantry Rifle",
-        "Value": 50,
-        "Attachments": {
-            "Tactical Movement": 1,
-            "Take Cover": 1,
-            "Adrenaline Rush": 2,
-            "Weapon Expert": 2,
-            "Suppressive Fire": 3,
-            "Trench Fighter": 3,
-            "Rebel Elite": 4
-        },
-        "Side Mission": "Brushfire",
-        "Reward": "Veteran Prowess"
-    },
-    "Gaarkan": {
-        "Attachments": {
-            "Wookiee Loyalty": 1,
-            "Ferocity": 2,
-            "Staggering Blow": 2,
-            "Vicious Strike": 3,
-            "Rampage": 3,
-            "Unstoppable": 4,
-            "Brutal Cleave": 4
-        },
-        "Side Mission": "Indebted",
-        "Reward": "Life Debt"
-    },
-    "Mak Eshka'rey": {
-        "Starting weapon": "Longblaster",
-        "Value": 50,
-        "Attachments": {
-            "Execute": 3,
-            "Disengage": 1,
-            "Supply Network": 1,
-            "Decoy": 4,
-            "Jeswandi Training": 2,
-            "Target Acquired": 2,
-            "Expertise": 3,
-            "No Escape": 4
-        },
-        "Side Mission": "Loose Cannon",
-        "Reward": "Shadow Suit"
-    },
-    "Jyn Odan": {
-        "Attachments": {
-            "Smuggler's Luck": 1,
-            "Quick As A Whip": 1,
-            "Cheap Shot": 2,
-            "Roll With It": 2,
-            "Gunslinger": 3,
-            "Get Cocky": 3,
-            "Trick Shot": 4,
-            "Sidewinder": 4
-        },
-        "Side Mission": "High Noon",
-        "Reward": "Peacemaker"
+    "Side Mission": "Temptation",
+    "Reward": "Shu Yen's Lightsaber"
+  },
+  "Gideon Argus": {
+    "Starting weapon": "Holdout Blaster",
+    "Value": 100,
+    "Attachments": {
+      "Called Shot": 1,
+      "Military Efficiency": 1,
+      "Mobile Tactician": 2,
+      "Air of Command": 2,
+      "Rallying Shout": 3,
+      "Hammer and Anvil": 4,
+      "Masterstroke": 4
     }
+  },
+  "Fenn Signis": {
+    "Starting weapon": "Infantry Rifle",
+    "Value": 100,
+    "Attachments": {
+      "Tactical Movement": 1,
+      "Take Cover": 1,
+      "Adrenaline Rush": 2,
+      "Weapon Expert": 2,
+      "Suppressive Fire": 3,
+      "Trench Fighter": 3,
+      "Rebel Elite": 4
+    },
+    "Side Mission": "Brushfire",
+    "Reward": "Veteran Prowess"
+  },
+  "Gaarkan": {
+    "Starting weapon": "Vibro-Ax",
+    "Value": 100,
+    "Attachments": {
+      "Wookiee Loyalty": 1,
+      "Ferocity": 2,
+      "Staggering Blow": 2,
+      "Vicious Strike": 3,
+      "Rampage": 3,
+      "Unstoppable": 4,
+      "Brutal Cleave": 4
+    },
+    "Side Mission": "Indebted",
+    "Reward": "Life Debt"
+  },
+  "Mak Eshka'rey": {
+    "Starting weapon": "Longblaster",
+    "Value": 100,
+    "Attachments": {
+      "Execute": 3,
+      "Disengage": 1,
+      "Supply Network": 1,
+      "Decoy": 4,
+      "Jeswandi Training": 2,
+      "Target Acquired": 2,
+      "Expertise": 3,
+      "No Escape": 4
+    },
+    "Side Mission": "Loose Cannon",
+    "Reward": "Shadow Suit"
+  },
+  "Jyn Odan": {
+    "Starting weapon": "Vintage Blaster",
+    "Value": 100,
+    "Attachments": {
+      "Smuggler's Luck": 1,
+      "Quick As A Whip": 1,
+      "Cheap Shot": 2,
+      "Roll With It": 2,
+      "Gunslinger": 3,
+      "Get Cocky": 3,
+      "Trick Shot": 4,
+      "Sidewinder": 4
+    },
+    "Side Mission": "High Noon",
+    "Reward": "Peacemaker"
+  },
+  "Biv Bodhrik": {
+    "Starting weapon": "Repeating Blaster",
+    "Value": 100,
+    "Additional Weapons": {
+      "Vibrobayonet": 3
+    },
+    "Attachments": {
+      "Advance": 1,
+      "Crushing Bow": 2,
+      "Final Stand": 4,
+      "Into the Frey": 3,
+      "Shake it Off": 1,
+      "Stay Down": 4,
+      "Trophy Armor": 3
+    },
+    "Side Mission": "Past Life Enemies",
+    "Reward": "Hunt Them Down"
+  },
+  "Saska Teft": {
+    "Starting weapon": "Modified Blaster",
+    "Value": 100,
+    "Attachments": {
+      "Unstable Device": 1,
+      "Took Kit": 1,
+      "Structural Weakness": 2,
+      "Remote Distribution": 4,
+      "Power Converter": 3,
+      "Gadgeteer": 3,
+      "Energy Shield": 2,
+      "Adrenaline Injector": 4
+    },
+    "Side Mission": "Shady Dealings",
+    "Reward": "Tech Goggles"
+  },
+
+  "Loku Kanoloa": {
+    "Starting weapon": "All-Weather Rifle",
+    "Value": 100,
+    "Attachments": {
+      "Combat Spotter": 1,
+      "Scouting Report": 1,
+      "Overwatch": 2,
+      "Spectrum Scanner": 2,
+      "Scout's Guidance": 3,
+      "Study of Enemies": 3,
+      "Coordinated Attack": 4,
+      "Mon Cala Special Forces": 4
+    },
+    "Side Mission": "Constant Vigilance",
+    "Reward": "Battle Vision"
+  },
+
+  "MHD-19": {
+    "Starting weapon": "Sidearm Blaster",
+    "Value": 100,
+    "Attachments": {
+      "Bacta Injector": 1,
+      "Improper Procedure": 1,
+      "Field Surgeon": 2,
+      "Fuel Injection": 2,
+      "Adrenal Vapor": 3,
+      "Miracle Worker": 3,
+      "Bacta Radiator": 4,
+      "Combat Override": 4
+    },
+    "Side Mission": "Preventative Measures",
+    "Reward": "Systems Upgrade"
+  },
+
+  "Verena Talos": {
+    "Starting weapon": "Military Blaster",
+    "Value": 100,
+    "Additional Weapons": {
+      "Fighting Knife": 100
+    },
+    "Attachments": {
+      "Combat Momentum": 1,
+      "Create Opening": 1,
+      "K'tara Maneuver": 2,
+      "Student of Battle": 2,
+      "Point Blank Shot": 3,
+      "Improvised Cover": 3,
+      "Master Operative": 4,
+      "Combat Mastery": 4
+    },
+    "Side Mission": "Know Your Enemy",
+    "Reward": "Iron Hand"
+  },
+  "Davith Elso": {
+    "Starting weapon": "Heirloom Dagger",
+    "Value": 100,
+    "Attachments": {
+      "Elusive Agent": 1,
+      "Covert Operative": 1,
+      "Blindside": 2,
+      "Falling Leaf": 2,
+      "Shrouded": 3,
+      "Lightsaber": 3,
+      "Force Illusion": 3,
+      "Embody The Force": 4,
+      "Fell Swoop": 4
+    },
+    "Side Mission": "Reclassified",
+    "Reward": "Radiant Holocron"
+  },
+
+  "Murne Rin": {
+    "Starting weapon": "Diplomat's Blaster",
+    "Value": 100,
+    "Attachments": {
+      "Company of Heroes": 1,
+      "Sonic Bellow": 1,
+      "Professional Aide": 2,
+      "Rebel Propaganda": 2,
+      "Double Agent": 3,
+      "Solidarity": 3,
+      "Lead from the front": 4,
+      "Waylay": 4
+    },
+    "Side Mission": "Panic in the Streets",
+    "Reward": "Cam Droid"
+  },
+
+  "Onar Koma": {
+    "Starting weapon": "Bodyguard Rifle",
+    "Value": 100,
+    "Attachments": {
+      "Get Down": 1,
+      "Keep Up": 1,
+      "Stay Behind Me": 2,
+      "Mutual Destruction": 2,
+      "Brute Strength": 3,
+      "Hold Still": 3,
+      "Don't Make me hurt you": 4,
+      "Black Sun Armor": 4
+    },
+    "Side Mission": "Extortion",
+    "Reward": "Haymaker"
+  },
+
+  "Shyla Varad": {
+    "Starting weapon": "Duelist's Blade",
+    "Value": 100,
+    "Attachments": {
+      "Responsiveness": 1,
+      "All-Out Attack": 1,
+      "Smoke Bombs": 2,
+      "Proximity Strike": 2,
+      "Swords Dance": 3,
+      "Remote Detonator": 3,
+      "Full Sweep": 4,
+      "Deadly Grace": 4
+    },
+    "Side Mission": "Born from Death",
+    "Reward": "Mandalorian Heritage"
+  },
+  "Vinto Hreeda": {
+    "Starting weapon": "Hair-Trigger Pistol",
+    "Value": 100,
+    "Attachments": {
+      "Pinpoint Shot": 1,
+      "Shot on the Run": 1,
+      "Sharpshooter": 2,
+      "Battlefield Experience": 2,
+      "Dead On": 3,
+      "Off-Hand Blaster": 3,
+      "Rapid Fire": 4,
+      "Merciless": 4
+    },
+    "Side Mission": "A Hero's Welcome",
+    "Reward": "Desperado"
+  },
+
+  "Drokkatta": {
+    "Starting weapon": "MGL-9 \"Boomer\"",
+    "Value": 100,
+    "Attachments": {
+      "Charging Up": 1,
+      "Leave No One Behind": 1,
+      "Bank Shot": 2,
+      "Shrapnel Rounds": 2,
+      "Repeater Cannon": 3,
+      "Structural Exploitation": 3,
+      "Thermal Explosives": 4,
+      "Wookiee Wrath": 4
+    },
+    "Side Mission": "Unfinished Business",
+    "Reward": "Wookiee Roar"
+  },
+
+  "Jarrod Kelvin": {
+    "Starting weapon": "Vibro Claws",
+    "Value": 100,
+    "Attachments": {
+      "Balanced Approach": 1,
+      "Forward Momentum": 1,
+      "Scout's Loadout": 2,
+      "Slicer's Upgrades": 2,
+      "Explosive Reflexes": 3,
+      "Mutual Progression": 3,
+      "Leaping Slash": 4,
+      "Mechanical Master": 4
+    },
+    "Side Mission": "Test of Metal",
+    "Reward": "X-8 Upgrade"
+  },
+
+  "Ko-Tun Feralo": {
+    "Starting weapon": "Service Rifle",
+    "Value": 100,
+    "Attachments": {
+      "Auxiliary Training": 1,
+      "Inch by Inch": 1,
+      "Combat Logistics": 2,
+      "Dig In": 2,
+      "Fire Support Specialist": 3,
+      "Opportunist": 3,
+      "Self-Sufficient": 4,
+      "Squad Cohesion": 4
+    },
+    "Side Mission": "Extraction",
+    "Reward": "Alliance Efficiency"
+  },
+
+  "CT-1701": {
+    "Starting weapon": "DC-15S Blaster",
+    "Value": 100,
+    "Attachments": {
+      "Covering Fire": 1,
+      "Reload": 1,
+      "Pin Them Down": 2,
+      "Strafing Run": 2,
+      "Squad Tactics": 3,
+      "Weakness Identified": 3,
+      "Concentrate Fire": 4,
+      "Wild Fire": 4
+    },
+    "Side Mission": "Sands of Seelos",
+    "Reward": "Bullseye!"
+  },
+
+  "Tress Hacnua": {
+    "Starting weapon": "Reinforced Cyberarm",
+    "Value": 50,
+    "Attachments": {
+      "Aryx Variation": 1,
+      "Mynock Strike": 1,
+      "Dianoga Sweep": 2,
+      "Gundark Throw": 2,
+      "Acklay Counter": 3,
+      "Dragonsnake Variation": 3,
+      "Fluidity": 4,
+      "Krayt Dragon Fury": 4
+    },
+    "Side Mission": "Duel on Devaron",
+    "Reward": "Wholeness"
+  }
 }

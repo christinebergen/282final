@@ -65,6 +65,7 @@ export default function AllCampaigns() {
               <Link href={`/campaign-details/${campaign.id}`} className=" ">
                 <p>{campaign.campaign}</p>
                 <p>Date Started: {campaign.date}</p>
+                <p>Status: {campaign.status}</p>
               </Link>
             </div>
           ))}

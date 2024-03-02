@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import utilStyles from "../styles/utils.module.css";
 import NavItem from "./NavItem";
 import useAuth from "../hooks/useAuth"; // Import useAuth
@@ -36,6 +36,24 @@ const Navbar = () => {
       });
   };
 
+  const menuRef = useRef();
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setNavActive(false);
+      }
+    }
+
+    // Add event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Clean up
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
+
   return (
     <header>
       <nav className={`nav`}>
@@ -48,7 +66,7 @@ const Navbar = () => {
           alt=""
         />
         <Link href={"/"}>
-          <h1 className="pl-8 text-[#CCDCE4] text-3xl">
+          <h1 className="pl-8 text-[#CCDCE4] text-xl md:text-3xl">
             Imperial Assault Campaign Tracker
           </h1>
         </Link>
@@ -62,7 +80,10 @@ const Navbar = () => {
         </div>
         <div>
           <div>
-            <div className={`${navActive ? "active" : ""} nav__menu-list`}>
+            <div
+              ref={menuRef}
+              className={`${navActive ? "active" : ""} nav__menu-list`}
+            >
               {MENU_LIST.map((menu, idx) => (
                 <div
                   onClick={() => {
@@ -75,16 +96,14 @@ const Navbar = () => {
                 </div>
               ))}
               {user ? (
-                <NavItem text="Logout" onClick={handleLogout} />
+                <>
+                  <NavItem text="Logout" onClick={handleLogout} />
+                  <div className="text-[#CCDCE4] text-sm md:text-md">
+                    You're logged in as: {user.email}
+                  </div>
+                </>
               ) : (
                 <NavItem text="Login" onClick={signInWithGoogle} />
-              )}
-            </div>
-            <div>
-              {user && (
-                <div className="text-[#CCDCE4] text-sm md:text-md">
-                  You're logged in as: {user.email}
-                </div>
               )}
             </div>
           </div>

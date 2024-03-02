@@ -65,59 +65,84 @@ export default function CampaignDetails() {
   }
 
   return (
-    <div className="w-3/4 md:w-2/3 flex flex-col justify-center items-center">
-      <div className="bg-gray-200 p-10 mb-10 rounded-lg flex flex-col justify-center items-center">
-        <h1>Campaign Start Date: {campaign.date}</h1>
-        <p>Campaign: {campaign.campaign}</p>
-        <p>Status: {campaignStatus}</p>
-        <button
-          className="bg-[#416477] p-2 m-2 rounded-lg"
-          onClick={toggleCampaignStatus}
-        >
-          {campaignStatus === "In Progress"
-            ? "Complete Campaign"
-            : "Revert to In Progress"}
-        </button>
-      </div>
-      <div className="flex flex-row justify-center items-center">
-        {campaign.characters && campaign.characters.length > 0 ? (
-          campaign.characters.map((characterName, index) => (
-            <p
-              className="bg-[#0FBDDB] mx-4 my-4 p-4 rounded-lg hover:font-bold"
-              key={`character-${index}`}
-              onClick={() => handleCharacterClick(characterName)}
+    <div className="flex flex-col justify-center items-center">
+      <div className="w-full md:w-3/4 bg-[#416477] flex flex-col justify-center items-center">
+        <div className="flex flex-col md:flex-row mt-10 items-center justify-center">
+          <div className="w-3/4 md:w-2/3 bg-gray-200 p-10 mt-10 mb-10 rounded-lg text-center">
+            <h1>Campaign Start Date: {campaign.date}</h1>
+            <p>Campaign: {campaign.campaign}</p>
+            <p>Status: {campaignStatus}</p>
+            <button
+              className="bg-[#416477] text-gray-200 font-bold p-2 m-2 rounded-lg hover:bg-slate-600"
+              onClick={toggleCampaignStatus}
             >
-              <a href="#" style={{ textDecoration: "underline" }}>
-                {characterName}
-              </a>
-            </p>
-          ))
-        ) : (
-          <p>No characters found</p>
+              {campaignStatus === "In Progress"
+                ? "Complete Campaign"
+                : "Revert to In Progress"}
+            </button>
+          </div>
+          <div>
+            <button className="bg-gray-200 p-4 rounded-lg flex flex-row ml-4 underline hover:bg-gray-300 hover:italic font-bold">
+              Purchase Equipment:
+            </button>
+          </div>
+        </div>
+        <h2 className="font-bold underline">Characters in play:</h2>
+        <div className="grid grid-cols-2 md:flex md:flex-row justify-center items-center">
+          {campaign.characters && campaign.characters.length > 0 ? (
+            campaign.characters.map((characterName, index) => (
+              <p
+                className="bg-[#0FBDDB] mx-2 my-2 md:mx-4 md:my-4 p-4 rounded-lg font-bold hover:bg-teal-600"
+                key={`character-${index}`}
+                onClick={() => handleCharacterClick(characterName)}
+              >
+                <a href="#" style={{ textDecoration: "underline" }}>
+                  {characterName}
+                </a>
+              </p>
+            ))
+          ) : (
+            <p>No characters found</p>
+          )}
+        </div>
+        <hr className="w-3/4 border-2 rounded-md border-gray-200 my-4"></hr>
+
+        {selectedCharacterDetails && (
+          <div className="bg-gray-200 rounded-lg p-8 flex flex-row ">
+            <div>
+              <h2 className="text-xl font-bold">
+                {selectedCharacterDetails.name}
+              </h2>
+              <div className="flex flex-row justify-center items-center">
+                <p className="font-bold">
+                  Starting Weapon: {selectedCharacterDetails.startingWeapon}
+                </p>
+                <button className="bg-[#416477] text-gray-200 font-bold ml-4 p-2 rounded-lg hover:bg-slate-600">
+                  Sell
+                </button>
+              </div>
+              <button
+                onClick={handleBuyAttachments}
+                className="bg-[#0FBDDB] m-8 p-4 rounded-lg underline font-bold hover:italic hover:bg-teal-600"
+              >
+                Click here to buy Attachments
+              </button>
+            </div>
+            {selectedCharacterDetails.attachments && (
+              <ul className="">
+                {Object.entries(selectedCharacterDetails.attachments).map(
+                  ([attachment, value]) => (
+                    <li key={attachment}>
+                      {attachment}: {value}xp
+                    </li>
+                  )
+                )}
+              </ul>
+            )}
+            {/* Additional character details can be displayed here */}
+          </div>
         )}
       </div>
-
-      {selectedCharacterDetails && (
-        <div className="bg-gray-200">
-          <h2>{selectedCharacterDetails.name}</h2>
-          <p>Starting Weapon: {selectedCharacterDetails.startingWeapon}</p>
-          <button onClick={handleBuyAttachments} className="bg-lime-100">
-            Click here to buy Attachments
-          </button>
-          {selectedCharacterDetails.attachments && (
-            <ul>
-              {Object.entries(selectedCharacterDetails.attachments).map(
-                ([attachment, value]) => (
-                  <li key={attachment}>
-                    {attachment}: {value}xp
-                  </li>
-                )
-              )}
-            </ul>
-          )}
-          {/* Additional character details can be displayed here */}
-        </div>
-      )}
     </div>
   );
 }
