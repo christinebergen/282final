@@ -6,6 +6,9 @@ import { db } from "../firebase/firebaseConfig";
 import { doc, setDoc, collection } from "firebase/firestore";
 import { useRouter } from "next/router";
 import useAuth from "../hooks/useAuth";
+import characterData from "../public/data/characters.json"
+
+const allCharacters = Object.keys(characterData);
 
 export default function AddCampaign() {
   const [formData, setFormData] = useState({
@@ -24,28 +27,7 @@ export default function AddCampaign() {
     "Tyrants of Lothal",
   ];
 
-  const [allCharacters] = useState([
-    "Diala Passil",
-    "Gideon Argus",
-    "Fenn Signis",
-    "Gaarkan",
-    "Jyn Odan",
-    "Biv Bodhrik",
-    "Saska Teft",
-    "Loku Kanoloa",
-    "MHD-19",
-    "Verena Talos",
-    "Mak Eshka'rey",
-    "Davith Elso",
-    "Murne Rin",
-    "Onar Koma",
-    "Shyla Varad",
-    "Vinto Hreeda",
-    "Drokkatta",
-    "Jarrod Kelvin",
-    "Ko-Tun Feralo",
-    "",
-  ]);
+  
   const [selectedCharacters, setSelectedCharacters] = useState([]);
 
   const { user: currentUser } = useAuth();
@@ -87,12 +69,15 @@ export default function AddCampaign() {
       return;
     }
 
+    
+    const charactersWithImperial = [...selectedCharacters, "Imperial Player"];
+
     const campaignData = {
       ...formData,
       userId: currentUser.uid, // Assuming currentUser has the UID
       date: formData.date,
       campaign: formData.campaign,
-      characters: formData.characters,
+      characters: charactersWithImperial,
     };
 
     try {
@@ -167,6 +152,7 @@ export default function AddCampaign() {
                   Selected Characters:
                 </label>
                 <div className="selected-characters">
+                  <p>Imperial Player</p>
                   {selectedCharacters.map((character) => (
                     <div
                       className="hover:underline"

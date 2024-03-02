@@ -1,0 +1,90 @@
+
+{
+    "Diala Passil": {
+        "Starting weapon": "Plasteel Staff",
+        "Value": 50,
+        "Attachments": {
+            "Force Throw": 1,
+            "Force Adept": 1,
+            "Dancing Weapon": 4,
+            "Art of Movement": 3,
+            "Defensive Stance": 2,
+            "Battle Meditation": 2,
+            "Way of the Sarlacc": 4,
+            "Snap Kick": 3
+        },
+        "Side Mission": "Temptation",
+        "Reward": "Shu Yen's Lightsaber"
+    },
+    "Gideon Argus": {
+        "Starting weapon": "Holdout Blaster",
+        "Value": 50,
+        "Attachments": {
+            "Called Shot": 1,
+            "Military Efficiency": 1,
+            "Mobile Tactician": 2,
+            "Air of Command": 2,
+            "Rallying Shout": 3,
+            "Hammer and Anvil": 4,
+            "Masterstroke": 4
+        }
+    },
+    "Fenn Signis": {
+        "Starting weapon": "Infantry Rifle",
+        "Value": 50,
+        "Attachments": {
+            "Tactical Movement": 1,
+            "Take Cover": 1,
+            "Adrenaline Rush": 2,
+            "Weapon Expert": 2,
+            "Suppressive Fire": 3,
+            "Trench Fighter": 3,
+            "Rebel Elite": 4
+        },
+        "Side Mission": "Brushfire",
+        "Reward": "Veteran Prowess"
+    },
+    "Gaarkan": {
+        "Attachments": {
+            "Wookiee Loyalty": 1,
+            "Ferocity": 2,
+            "Staggering Blow": 2,
+            "Vicious Strike": 3,
+            "Rampage": 3,
+            "Unstoppable": 4,
+            "Brutal Cleave": 4
+        },
+        "Side Mission": "Indebted",
+        "Reward": "Life Debt"
+    },
+    "Mak Eshka'rey": {
+        "Starting weapon": "Longblaster",
+        "Value": 50,
+        "Attachments": {
+            "Execute": 3,
+            "Disengage": 1,
+            "Supply Network": 1,
+            "Decoy": 4,
+            "Jeswandi Training": 2,
+            "Target Acquired": 2,
+            "Expertise": 3,
+            "No Escape": 4
+        },
+        "Side Mission": "Loose Cannon",
+        "Reward": "Shadow Suit"
+    },
+    "Jyn Odan": {
+        "Attachments": {
+            "Smuggler's Luck": 1,
+            "Quick As A Whip": 1,
+            "Cheap Shot": 2,
+            "Roll With It": 2,
+            "Gunslinger": 3,
+            "Get Cocky": 3,
+            "Trick Shot": 4,
+            "Sidewinder": 4
+        },
+        "Side Mission": "High Noon",
+        "Reward": "Peacemaker"
+    }
+}
