@@ -36,7 +36,7 @@ const Home = () => {
           </h1>
           <h2>
             An app for tracking progress during a Star Wars Imperial Assault
-            Campaign. For testing purposes only.
+            Campaign. Currently in testing phase.
           </h2>
           <p className="font-bold text-xl mb-20">Please log in to continue.</p>
         </div>

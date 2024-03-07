@@ -53,7 +53,7 @@ function Character({
               onClick={onBuyAttachments}
               className="bg-[#0FBDDB] m-8 p-4 rounded-lg underline font-bold md:text-xl hover:italic hover:bg-teal-600"
             >
-              Click here to buy Attachments
+              View Class Cards
             </button>
 
             {showAttachments && selectedCharacterDetails.attachments && (

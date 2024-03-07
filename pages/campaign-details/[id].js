@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig"; // Update with correct path
 import characterData from "../../public/data/characters.json";
 import Character from "../../components/Character";
@@ -14,16 +14,19 @@ export default function CampaignDetails() {
   const [campaign, setCampaign] = useState(null);
   const [selectedCharacterDetails, setSelectedCharacterDetails] = useState([]);
   const [campaignStatus, setCampaignStatus] = useState("In Progress");
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [selectedTier, setSelectedTier] = useState(null);
-  const [equipment, setEquipment] = useState([]);
+
+  const [selectedTier, setSelectedTier] = useState(1);
+  const [selectedEquipmentData, setSelectedEquipmentData] = useState([]);
   const [selectedTab, setSelectedTab] = useState("characters");
   const [characters, setCharacters] = useState([]);
   const [showAttachments, setShowAttachments] = useState(false);
+  const [ownedEquipment, setOwnedEquipment] = useState([]);
+  const [soldEquipment, setSoldEquipment] = useState([]);
 
   useEffect(() => {
     if (id) {
-      const fetchCampaign = async () => {
+      const fetchCampaignAndEquipmentData = async () => {
+        // Fetch campaign data
         const docRef = doc(db, "campaigns", id);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
@@ -32,12 +35,27 @@ export default function CampaignDetails() {
           setCampaignStatus(campaignData.status || "In Progress");
           const campaignCharacters = campaignData.characters || [];
           setCharacters(campaignCharacters);
+          const ownedEquipment = campaignData.ownedEquipment || [];
+          setOwnedEquipment(ownedEquipment);
+          const campaignSoldEquipment = campaignData.soldEquipment || [];
+          setSoldEquipment(campaignSoldEquipment);
+        }
+
+        // Fetch equipment data based on selectedTier
+        try {
+          const response = await import(
+            `../../public/data/equip_t${selectedTier}.json`
+          );
+          setSelectedEquipmentData(response.default);
+          console.log("Equipment Data:", response.default); // Debugging line
+        } catch (error) {
+          console.error("Error loading equipment data:", error);
         }
       };
 
-      fetchCampaign();
+      fetchCampaignAndEquipmentData();
     }
-  }, [id]);
+  }, [id, selectedTier]);
 
   const toggleCampaignStatus = async () => {
     const newStatus =
@@ -87,25 +105,41 @@ export default function CampaignDetails() {
       }));
     }
   };
-  const fetchEquipmentData = async (tier) => {
+  const handleUpdateOwnedEquipment = async (newItem) => {
+    const updatedOwnedEquipment = [...ownedEquipment, newItem];
+    setOwnedEquipment(updatedOwnedEquipment);
+
+    const campaignDocRef = doc(db, "campaigns", id);
     try {
-      const response = await fetch(`/data/equip_t${tier}.json`);
-      const data = await response.json();
-      setEquipment(data);
+      await updateDoc(campaignDocRef, {
+        ownedEquipment: arrayUnion(newItem),
+      });
     } catch (error) {
-      console.error("Error fetching equipment data:", error);
+      console.error("Error updating campaign equipment in Firebase:", error);
     }
   };
+  const handleSellEquipment = async (item) => {
+    const newOwnedEquipment = ownedEquipment.filter((e) => e !== item);
+    const newSoldEquipment = [...soldEquipment, item]; // Define the new sold equipment
+    console.log("Selling item:", item);
+    console.log("New Owned Equipment:", newOwnedEquipment);
+    console.log("New Sold Equipment:", newSoldEquipment);
 
-  const handleTierSelection = (tier) => {
-    setSelectedTier(tier);
-    fetchEquipmentData(tier);
-    setShowDropdown(false); // Close the dropdown after selection
+    setOwnedEquipment(newOwnedEquipment);
+    setSoldEquipment(newSoldEquipment); // Update the state with the new list
+
+    // Update Firestore
+    const campaignDocRef = doc(db, "campaigns", id);
+    try {
+      await updateDoc(campaignDocRef, {
+        ownedEquipment: newOwnedEquipment,
+        soldEquipment: arrayUnion(item),
+      });
+      console.log("Equipment sold and updated in Firestore");
+    } catch (error) {
+      console.error("Error updating equipment in Firestore:", error);
+    }
   };
-
-  useEffect(() => {
-    fetchEquipmentData(1);
-  }, []);
 
   if (!campaign) {
     return <div>Loading...</div>; // Or any other loading state representation
@@ -130,7 +164,7 @@ export default function CampaignDetails() {
           </div>
           <div className="flex flex-col md:flex-row w-full justify-center items-center bg-gray-200">
             {/* Sidebar with Options */}
-            <div className="md:w-1/4 flex flex-row md:flex-col bg-gray-200 p-4">
+            <div className="md:w-80 flex flex-row md:flex-col bg-gray-200 p-4">
               <button
                 className="bg-[#416477] text-gray-200 text-xl font-bold p-2 m-2 rounded-lg hover:bg-slate-600"
                 onClick={() => setSelectedTab("characters")}
@@ -143,16 +177,13 @@ export default function CampaignDetails() {
               >
                 Equipment
               </button>
-              <button
-                className="bg-[#416477] text-gray-200 text-xl font-bold p-2 m-2 rounded-lg hover:bg-slate-600"
-                onClick={() => setSelectedTab("missions")}
-              >
+              <button className="bg-[#416477] text-gray-200 text-xl font-bold p-2 m-2 rounded-lg hover:bg-slate-600">
                 Missions
               </button>
             </div>
 
             {/* Content Area */}
-            <div className="w-3/4 bg-gray-100 p-4">
+            <div className="w-3/4 max-w-4xl mx-auto overflow-auto min-h-[300px] flex flex-col justify-center bg-gray-100 p-4">
               {selectedTab === "characters" && (
                 <Character
                   characterData={characters}
@@ -163,7 +194,17 @@ export default function CampaignDetails() {
                   onPurchaseAttachment={purchaseAttachment}
                 />
               )}
-              {selectedTab === "equipment" && <Equipment />}
+              {selectedTab === "equipment" && (
+                <Equipment
+                  id={id}
+                  selectedTier={selectedTier}
+                  ownedEquipment={ownedEquipment}
+                  onUpdateOwnedEquipment={handleUpdateOwnedEquipment}
+                  onSellEquipment={handleSellEquipment}
+                  soldEquipment={soldEquipment}
+                />
+              )}
+
               {selectedTab === "missions" && <Mission />}
             </div>
           </div>
