@@ -106,7 +106,7 @@ function Character({
               className="bg-[#0FBDDB] m-8 p-4 rounded-lg underline font-bold md:text-xl hover:italic hover:bg-teal-600"
               onClick={handleBuyAttachments}
             >
-              View Class Cards
+              Click here to buy Attachments
             </button>
             {selectedCharacterDetails &&
               selectedCharacterDetails.Attachments &&
