@@ -7,12 +7,14 @@ import characterData from "../../public/data/characters.json";
 import Character from "../../components/Character";
 import Equipment from "../../components/Equipment";
 import Mission from "../../components/Mission";
+//import Character from "../../components/Newchars";
 
 export default function CampaignDetails() {
   const router = useRouter();
   const { id } = router.query;
   const [campaign, setCampaign] = useState(null);
-  const [selectedCharacterDetails, setSelectedCharacterDetails] = useState([]);
+  const [selectedCharacterDetails, setSelectedCharacterDetails] =
+    useState(null);
   const [campaignStatus, setCampaignStatus] = useState("In Progress");
 
   const [selectedTier, setSelectedTier] = useState(1);
@@ -77,34 +79,16 @@ export default function CampaignDetails() {
         setSelectedCharacterDetails({
           name: characterName,
           startingWeapon: characterDetails["Starting weapon"],
-          attachments: characterDetails.Attachments || {}, // Ensure this line correctly references the structure of your data
+          xp: characterDetails.xp,
+          attachments: characterDetails.Attachments || [], // Ensure this line correctly references the structure of your data
           // Include other properties as needed
         });
+      setShowAttachments(false);
     }
   };
 
   console.log(characterData);
-  console.log("Show Attachments", showAttachments);
-  console.log("Attachments data", selectedCharacterDetails.attachments);
 
-  const handleBuyAttachments = () => {
-    setShowAttachments(!showAttachments);
-  };
-
-  const purchaseAttachment = (characterName, attachmentCost) => {
-    if (
-      selectedCharacterDetails &&
-      selectedCharacterDetails.name === characterName
-    ) {
-      setSelectedCharacterDetails((prevDetails) => ({
-        ...prevDetails,
-        xp: Math.max(prevDetails.xp - attachmentCost, 0), // Update XP
-        attachments: (prevDetails.attachments || []).concat({
-          /* attachment details here */
-        }),
-      }));
-    }
-  };
   const handleUpdateOwnedEquipment = async (newItem) => {
     const updatedOwnedEquipment = [...ownedEquipment, newItem];
     setOwnedEquipment(updatedOwnedEquipment);
@@ -162,7 +146,7 @@ export default function CampaignDetails() {
                 : "Revert to In Progress"}
             </button>
           </div>
-          <div className="flex flex-col md:flex-row w-full justify-center items-center bg-gray-200">
+          <div className="flex flex-col md:flex-row w-full justify-center bg-gray-200">
             {/* Sidebar with Options */}
             <div className="md:w-80 flex flex-row md:flex-col bg-gray-200 p-4">
               <button
@@ -189,9 +173,9 @@ export default function CampaignDetails() {
                   characterData={characters}
                   onCharacterClick={handleCharacterClick}
                   selectedCharacterDetails={selectedCharacterDetails}
-                  onBuyAttachments={handleBuyAttachments}
-                  showAttachments={showAttachments}
-                  onPurchaseAttachment={purchaseAttachment}
+                  campaignId={id}
+                  showAttachments={showAttachments} // Pass the state and setter
+                  setShowAttachments={setShowAttachments}
                 />
               )}
               {selectedTab === "equipment" && (
