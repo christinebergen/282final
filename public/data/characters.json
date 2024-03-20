@@ -2,91 +2,92 @@
   "Diala Passil": {
     "Starting weapon": "Plasteel Staff",
     "Value": 100,
-    "Attachments": {
-      "Force Throw": 1,
-      "Force Adept": 1,
-      "Dancing Weapon": 4,
-      "Art of Movement": 3,
-      "Defensive Stance": 2,
-      "Battle Meditation": 2,
-      "Way of the Sarlacc": 4,
-      "Snap Kick": 3
-    },
+    "Attachments": [
+      { "name": "Force Throw", "cost": 1 },
+      { "name": "Force Adept", "cost": 1 },
+      { "name": "Dancing Weapon", "cost": 4 },
+      { "name": "Art of Movement", "cost": 3 },
+      { "name": "Defensive Stance", "cost": 2 },
+      { "name": "Battle Meditation", "cost": 2 },
+      { "name": "Way of the Sarlacc", "cost": 4 },
+      { "name": "Snap Kick", "cost": 3 }
+    ],
     "Side Mission": "Temptation",
     "Reward": "Shu Yen's Lightsaber"
   },
   "Gideon Argus": {
     "Starting weapon": "Holdout Blaster",
     "Value": 100,
-    "Attachments": {
-      "Called Shot": 1,
-      "Military Efficiency": 1,
-      "Mobile Tactician": 2,
-      "Air of Command": 2,
-      "Rallying Shout": 3,
-      "Hammer and Anvil": 4,
-      "Masterstroke": 4
-    }
+    "Attachments": [
+      { "name": "Called Shot", "cost": 1 },
+      { "name": "Military Efficiency", "cost": 1 },
+      { "name": "Mobile Tactician", "cost": 2 },
+      { "name": "Air of Command", "cost": 2 },
+      { "name": "Rallying Shout", "cost": 3 },
+      { "name": "Hammer and Anvil", "cost": 4 },
+      { "name": "Masterstroke", "cost": 4 }
+    ]
   },
   "Fenn Signis": {
     "Starting weapon": "Infantry Rifle",
     "Value": 100,
-    "Attachments": {
-      "Tactical Movement": 1,
-      "Take Cover": 1,
-      "Adrenaline Rush": 2,
-      "Weapon Expert": 2,
-      "Suppressive Fire": 3,
-      "Trench Fighter": 3,
-      "Rebel Elite": 4
-    },
+    "Attachments": [
+      { "name": "Tactical Movement", "cost": 1 },
+      { "name": "Take Cover", "cost": 1 },
+      { "name": "Adrenaline Rush", "cost": 2 },
+      { "name": "Weapon Expert", "cost": 2 },
+      { "name": "Suppressive Fire", "cost": 3 },
+      { "name": "Trench Fighter", "cost": 3 },
+      { "name": "Rebel Elite", "cost": 4 }
+    ],
     "Side Mission": "Brushfire",
     "Reward": "Veteran Prowess"
   },
   "Gaarkan": {
     "Starting weapon": "Vibro-Ax",
     "Value": 100,
-    "Attachments": {
-      "Wookiee Loyalty": 1,
-      "Ferocity": 2,
-      "Staggering Blow": 2,
-      "Vicious Strike": 3,
-      "Rampage": 3,
-      "Unstoppable": 4,
-      "Brutal Cleave": 4
-    },
+    "Attachments": [
+      { "name": "Wookiee Loyalty", "cost": 1 },
+      { "name": "Ferocity", "cost": 2 },
+      { "name": "Staggering Blow", "cost": 2 },
+      { "name": "Vicious Strike", "cost": 3 },
+      { "name": "Rampage", "cost": 3 },
+      { "name": "Unstoppable", "cost": 4 },
+      { "name": "Brutal Cleave", "cost": 4 }
+    ],
     "Side Mission": "Indebted",
     "Reward": "Life Debt"
   },
   "Mak Eshka'rey": {
     "Starting weapon": "Longblaster",
     "Value": 100,
-    "Attachments": {
-      "Execute": 3,
-      "Disengage": 1,
-      "Supply Network": 1,
-      "Decoy": 4,
-      "Jeswandi Training": 2,
-      "Target Acquired": 2,
-      "Expertise": 3,
-      "No Escape": 4
-    },
+    "Attachments": [
+      { "name": "Disengage", "cost": 1 },
+      { "name": "Supply Network", "cost": 1 },
+      { "name": "Jeswandi Training", "cost": 2 },
+      { "name": "Target Acquired", "cost": 2 },
+      { "name": "Execute", "cost": 3 },
+      { "name": "Expertise", "cost": 3 },
+      { "name": "Decoy", "cost": 4 },
+      { "name": "No Escape", "cost": 4 }
+    ],
     "Side Mission": "Loose Cannon",
     "Reward": "Shadow Suit"
   },
+
   "Jyn Odan": {
     "Starting weapon": "Vintage Blaster",
     "Value": 100,
-    "Attachments": {
-      "Smuggler's Luck": 1,
-      "Quick As A Whip": 1,
-      "Cheap Shot": 2,
-      "Roll With It": 2,
-      "Gunslinger": 3,
-      "Get Cocky": 3,
-      "Trick Shot": 4,
-      "Sidewinder": 4
-    },
+    "Attachments": [
+      { "name": "Smuggler's Luck", "cost": 1 },
+      { "name": "Quick As A Whip", "cost": 1 },
+      { "name": "Cheap Shot", "cost": 2 },
+      { "name": "Roll With It", "cost": 2 },
+      { "name": "Gunslinger", "cost": 3 },
+      { "name": "Get Cocky", "cost": 3 },
+      { "name": "Trick Shot", "cost": 4 },
+      { "name": "Sidewinder", "cost": 4 }
+    ],
     "Side Mission": "High Noon",
     "Reward": "Peacemaker"
   },
@@ -96,48 +97,47 @@
     "Additional Weapons": {
       "Vibrobayonet": 3
     },
-    "Attachments": {
-      "Advance": 1,
-      "Crushing Bow": 2,
-      "Final Stand": 4,
-      "Into the Frey": 3,
-      "Shake it Off": 1,
-      "Stay Down": 4,
-      "Trophy Armor": 3
-    },
+    "Attachments": [
+      { "name": "Advance", "cost": 1 },
+      { "name": "Crushing Bow", "cost": 2 },
+      { "name": "Final Stand", "cost": 4 },
+      { "name": "Into the Frey", "cost": 3 },
+      { "name": "Shake it Off", "cost": 1 },
+      { "name": "Stay Down", "cost": 4 },
+      { "name": "Trophy Armor", "cost": 3 }
+    ],
     "Side Mission": "Past Life Enemies",
     "Reward": "Hunt Them Down"
   },
   "Saska Teft": {
     "Starting weapon": "Modified Blaster",
     "Value": 100,
-    "Attachments": {
-      "Unstable Device": 1,
-      "Took Kit": 1,
-      "Structural Weakness": 2,
-      "Remote Distribution": 4,
-      "Power Converter": 3,
-      "Gadgeteer": 3,
-      "Energy Shield": 2,
-      "Adrenaline Injector": 4
-    },
+    "Attachments": [
+      { "name": "Unstable Device", "cost": 1 },
+      { "name": "Took Kit", "cost": 1 },
+      { "name": "Structural Weakness", "cost": 2 },
+      { "name": "Remote Distribution", "cost": 4 },
+      { "name": "Power Converter", "cost": 3 },
+      { "name": "Gadgeteer", "cost": 3 },
+      { "name": "Energy Shield", "cost": 2 },
+      { "name": "Adrenaline Injector", "cost": 4 }
+    ],
     "Side Mission": "Shady Dealings",
     "Reward": "Tech Goggles"
   },
-
   "Loku Kanoloa": {
     "Starting weapon": "All-Weather Rifle",
     "Value": 100,
-    "Attachments": {
-      "Combat Spotter": 1,
-      "Scouting Report": 1,
-      "Overwatch": 2,
-      "Spectrum Scanner": 2,
-      "Scout's Guidance": 3,
-      "Study of Enemies": 3,
-      "Coordinated Attack": 4,
-      "Mon Cala Special Forces": 4
-    },
+    "Attachments": [
+      { "name": "Combat Spotter", "cost": 1 },
+      { "name": "Scouting Report", "cost": 1 },
+      { "name": "Overwatch", "cost": 2 },
+      { "name": "Spectrum Scanner", "cost": 2 },
+      { "name": "Scout's Guidance", "cost": 3 },
+      { "name": "Study of Enemies", "cost": 3 },
+      { "name": "Coordinated Attack", "cost": 4 },
+      { "name": "Mon Cala Special Forces", "cost": 4 }
+    ],
     "Side Mission": "Constant Vigilance",
     "Reward": "Battle Vision"
   },
@@ -145,87 +145,84 @@
   "MHD-19": {
     "Starting weapon": "Sidearm Blaster",
     "Value": 100,
-    "Attachments": {
-      "Bacta Injector": 1,
-      "Improper Procedure": 1,
-      "Field Surgeon": 2,
-      "Fuel Injection": 2,
-      "Adrenal Vapor": 3,
-      "Miracle Worker": 3,
-      "Bacta Radiator": 4,
-      "Combat Override": 4
-    },
+    "Attachments": [
+      { "name": "Bacta Injector", "cost": 1 },
+      { "name": "Improper Procedure", "cost": 1 },
+      { "name": "Field Surgeon", "cost": 2 },
+      { "name": "Fuel Injection", "cost": 2 },
+      { "name": "Adrenal Vapor", "cost": 3 },
+      { "name": "Miracle Worker", "cost": 3 },
+      { "name": "Bacta Radiator", "cost": 4 },
+      { "name": "Combat Override", "cost": 4 }
+    ],
     "Side Mission": "Preventative Measures",
     "Reward": "Systems Upgrade"
   },
-
   "Verena Talos": {
     "Starting weapon": "Military Blaster",
     "Value": 100,
     "Additional Weapons": {
       "Fighting Knife": 100
     },
-    "Attachments": {
-      "Combat Momentum": 1,
-      "Create Opening": 1,
-      "K'tara Maneuver": 2,
-      "Student of Battle": 2,
-      "Point Blank Shot": 3,
-      "Improvised Cover": 3,
-      "Master Operative": 4,
-      "Combat Mastery": 4
-    },
+    "Attachments": [
+      { "name": "Combat Momentum", "cost": 1 },
+      { "name": "Create Opening", "cost": 1 },
+      { "name": "K'tara Maneuver", "cost": 2 },
+      { "name": "Student of Battle", "cost": 2 },
+      { "name": "Point Blank Shot", "cost": 3 },
+      { "name": "Improvised Cover", "cost": 3 },
+      { "name": "Master Operative", "cost": 4 },
+      { "name": "Combat Mastery", "cost": 4 }
+    ],
     "Side Mission": "Know Your Enemy",
     "Reward": "Iron Hand"
   },
   "Davith Elso": {
     "Starting weapon": "Heirloom Dagger",
     "Value": 100,
-    "Attachments": {
-      "Elusive Agent": 1,
-      "Covert Operative": 1,
-      "Blindside": 2,
-      "Falling Leaf": 2,
-      "Shrouded": 3,
-      "Lightsaber": 3,
-      "Force Illusion": 3,
-      "Embody The Force": 4,
-      "Fell Swoop": 4
-    },
+    "Attachments": [
+      { "name": "Elusive Agent", "cost": 1 },
+      { "name": "Covert Operative", "cost": 1 },
+      { "name": "Blindside", "cost": 2 },
+      { "name": "Falling Leaf", "cost": 2 },
+      { "name": "Shrouded", "cost": 3 },
+      { "name": "Lightsaber", "cost": 3 },
+      { "name": "Force Illusion", "cost": 3 },
+      { "name": "Embody The Force", "cost": 4 },
+      { "name": "Fell Swoop", "cost": 4 }
+    ],
     "Side Mission": "Reclassified",
     "Reward": "Radiant Holocron"
   },
-
   "Murne Rin": {
     "Starting weapon": "Diplomat's Blaster",
     "Value": 100,
-    "Attachments": {
-      "Company of Heroes": 1,
-      "Sonic Bellow": 1,
-      "Professional Aide": 2,
-      "Rebel Propaganda": 2,
-      "Double Agent": 3,
-      "Solidarity": 3,
-      "Lead from the front": 4,
-      "Waylay": 4
-    },
+    "Attachments": [
+      { "name": "Company of Heroes", "cost": 1 },
+      { "name": "Sonic Bellow", "cost": 1 },
+      { "name": "Professional Aide", "cost": 2 },
+      { "name": "Rebel Propaganda", "cost": 2 },
+      { "name": "Double Agent", "cost": 3 },
+      { "name": "Solidarity", "cost": 3 },
+      { "name": "Lead from the front", "cost": 4 },
+      { "name": "Waylay", "cost": 4 }
+    ],
     "Side Mission": "Panic in the Streets",
     "Reward": "Cam Droid"
   },
-
   "Onar Koma": {
     "Starting weapon": "Bodyguard Rifle",
     "Value": 100,
-    "Attachments": {
-      "Get Down": 1,
-      "Keep Up": 1,
-      "Stay Behind Me": 2,
-      "Mutual Destruction": 2,
-      "Brute Strength": 3,
-      "Hold Still": 3,
-      "Don't Make me hurt you": 4,
-      "Black Sun Armor": 4
-    },
+    "Attachments": [
+      { "name": "Get Down", "cost": 1 },
+      { "name": "Keep Up", "cost": 1 },
+      { "name": "Stay Behind Me", "cost": 2 },
+      { "name": "Mutual Destruction", "cost": 2 },
+      { "name": "Brute Strength", "cost": 3 },
+      { "name": "Hold Still", "cost": 3 },
+      { "name": "Don't Make me hurt you", "cost": 4 },
+      { "name": "Black Sun Armor", "cost": 4 }
+    ],
     "Side Mission": "Extortion",
     "Reward": "Haymaker"
   },
@@ -233,66 +230,64 @@
   "Shyla Varad": {
     "Starting weapon": "Duelist's Blade",
     "Value": 100,
-    "Attachments": {
-      "Responsiveness": 1,
-      "All-Out Attack": 1,
-      "Smoke Bombs": 2,
-      "Proximity Strike": 2,
-      "Swords Dance": 3,
-      "Remote Detonator": 3,
-      "Full Sweep": 4,
-      "Deadly Grace": 4
-    },
+    "Attachments": [
+      { "name": "Responsiveness", "cost": 1 },
+      { "name": "All-Out Attack", "cost": 1 },
+      { "name": "Smoke Bombs", "cost": 2 },
+      { "name": "Proximity Strike", "cost": 2 },
+      { "name": "Swords Dance", "cost": 3 },
+      { "name": "Remote Detonator", "cost": 3 },
+      { "name": "Full Sweep", "cost": 4 },
+      { "name": "Deadly Grace", "cost": 4 }
+    ],
     "Side Mission": "Born from Death",
     "Reward": "Mandalorian Heritage"
   },
   "Vinto Hreeda": {
     "Starting weapon": "Hair-Trigger Pistol",
     "Value": 100,
-    "Attachments": {
-      "Pinpoint Shot": 1,
-      "Shot on the Run": 1,
-      "Sharpshooter": 2,
-      "Battlefield Experience": 2,
-      "Dead On": 3,
-      "Off-Hand Blaster": 3,
-      "Rapid Fire": 4,
-      "Merciless": 4
-    },
+    "Attachments": [
+      { "name": "Pinpoint Shot", "cost": 1 },
+      { "name": "Shot on the Run", "cost": 1 },
+      { "name": "Sharpshooter", "cost": 2 },
+      { "name": "Battlefield Experience", "cost": 2 },
+      { "name": "Dead On", "cost": 3 },
+      { "name": "Off-Hand Blaster", "cost": 3 },
+      { "name": "Rapid Fire", "cost": 4 },
+      { "name": "Merciless", "cost": 4 }
+    ],
     "Side Mission": "A Hero's Welcome",
     "Reward": "Desperado"
   },
-
   "Drokkatta": {
     "Starting weapon": "MGL-9 \"Boomer\"",
     "Value": 100,
-    "Attachments": {
-      "Charging Up": 1,
-      "Leave No One Behind": 1,
-      "Bank Shot": 2,
-      "Shrapnel Rounds": 2,
-      "Repeater Cannon": 3,
-      "Structural Exploitation": 3,
-      "Thermal Explosives": 4,
-      "Wookiee Wrath": 4
-    },
+    "Attachments": [
+      { "name": "Charging Up", "cost": 1 },
+      { "name": "Leave No One Behind", "cost": 1 },
+      { "name": "Bank Shot", "cost": 2 },
+      { "name": "Shrapnel Rounds", "cost": 2 },
+      { "name": "Repeater Cannon", "cost": 3 },
+      { "name": "Structural Exploitation", "cost": 3 },
+      { "name": "Thermal Explosives", "cost": 4 },
+      { "name": "Wookiee Wrath", "cost": 4 }
+    ],
     "Side Mission": "Unfinished Business",
     "Reward": "Wookiee Roar"
   },
-
   "Jarrod Kelvin": {
     "Starting weapon": "Vibro Claws",
     "Value": 100,
-    "Attachments": {
-      "Balanced Approach": 1,
-      "Forward Momentum": 1,
-      "Scout's Loadout": 2,
-      "Slicer's Upgrades": 2,
-      "Explosive Reflexes": 3,
-      "Mutual Progression": 3,
-      "Leaping Slash": 4,
-      "Mechanical Master": 4
-    },
+    "Attachments": [
+      { "name": "Balanced Approach", "cost": 1 },
+      { "name": "Forward Momentum", "cost": 1 },
+      { "name": "Scout's Loadout", "cost": 2 },
+      { "name": "Slicer's Upgrades", "cost": 2 },
+      { "name": "Explosive Reflexes", "cost": 3 },
+      { "name": "Mutual Progression", "cost": 3 },
+      { "name": "Leaping Slash", "cost": 4 },
+      { "name": "Mechanical Master", "cost": 4 }
+    ],
     "Side Mission": "Test of Metal",
     "Reward": "X-8 Upgrade"
   },
@@ -300,50 +295,48 @@
   "Ko-Tun Feralo": {
     "Starting weapon": "Service Rifle",
     "Value": 100,
-    "Attachments": {
-      "Auxiliary Training": 1,
-      "Inch by Inch": 1,
-      "Combat Logistics": 2,
-      "Dig In": 2,
-      "Fire Support Specialist": 3,
-      "Opportunist": 3,
-      "Self-Sufficient": 4,
-      "Squad Cohesion": 4
-    },
+    "Attachments": [
+      { "name": "Auxiliary Training", "cost": 1 },
+      { "name": "Inch by Inch", "cost": 1 },
+      { "name": "Combat Logistics", "cost": 2 },
+      { "name": "Dig In", "cost": 2 },
+      { "name": "Fire Support Specialist", "cost": 3 },
+      { "name": "Opportunist", "cost": 3 },
+      { "name": "Self-Sufficient", "cost": 4 },
+      { "name": "Squad Cohesion", "cost": 4 }
+    ],
     "Side Mission": "Extraction",
     "Reward": "Alliance Efficiency"
   },
-
   "CT-1701": {
     "Starting weapon": "DC-15S Blaster",
     "Value": 100,
-    "Attachments": {
-      "Covering Fire": 1,
-      "Reload": 1,
-      "Pin Them Down": 2,
-      "Strafing Run": 2,
-      "Squad Tactics": 3,
-      "Weakness Identified": 3,
-      "Concentrate Fire": 4,
-      "Wild Fire": 4
-    },
+    "Attachments": [
+      { "name": "Covering Fire", "cost": 1 },
+      { "name": "Reload", "cost": 1 },
+      { "name": "Pin Them Down", "cost": 2 },
+      { "name": "Strafing Run", "cost": 2 },
+      { "name": "Squad Tactics", "cost": 3 },
+      { "name": "Weakness Identified", "cost": 3 },
+      { "name": "Concentrate Fire", "cost": 4 },
+      { "name": "Wild Fire", "cost": 4 }
+    ],
     "Side Mission": "Sands of Seelos",
     "Reward": "Bullseye!"
   },
-
   "Tress Hacnua": {
     "Starting weapon": "Reinforced Cyberarm",
     "Value": 50,
-    "Attachments": {
-      "Aryx Variation": 1,
-      "Mynock Strike": 1,
-      "Dianoga Sweep": 2,
-      "Gundark Throw": 2,
-      "Acklay Counter": 3,
-      "Dragonsnake Variation": 3,
-      "Fluidity": 4,
-      "Krayt Dragon Fury": 4
-    },
+    "Attachments": [
+      { "name": "Aryx Variation", "cost": 1 },
+      { "name": "Mynock Strike", "cost": 1 },
+      { "name": "Dianoga Sweep", "cost": 2 },
+      { "name": "Gundark Throw", "cost": 2 },
+      { "name": "Acklay Counter", "cost": 3 },
+      { "name": "Dragonsnake Variation", "cost": 3 },
+      { "name": "Fluidity", "cost": 4 },
+      { "name": "Krayt Dragon Fury", "cost": 4 }
+    ],
     "Side Mission": "Duel on Devaron",
     "Reward": "Wholeness"
   }

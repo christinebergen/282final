@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { doc, updateDoc, arrayUnion, getDoc } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig";
 
 function Equipment({
@@ -42,26 +42,90 @@ function Equipment({
     }
     fetchData();
   }, [currentTier, ownedEquipment, soldEquipment]);
+  const [availableFunds, setAvailableFunds] = useState();
+
+  useEffect(() => {
+    const fetchAvailableFunds = async () => {
+      const userDocRef = doc(db, "campaigns", id);
+      try {
+        const docSnap = await getDoc(userDocRef);
+  
+        if (docSnap.exists()) {
+          console.log("Fetched document data:", docSnap.data()); // Log the fetched data
+          setAvailableFunds(docSnap.data().availableFunds);
+        } else {
+          console.log("No such document at path:", `campaigns/${id}`);
+        }
+      } catch (error) {
+        console.error("Error fetching document:", error);
+      }
+    };
+  
+    fetchAvailableFunds();
+  }, [id]);
+
+  const addFundsForTesting = () => {
+    setAvailableFunds((prevFunds) => prevFunds + 1000);
+  };
+
+  const handleSellEquipment = async (item) => {
+    const sellValue = item.cost / 2;
+    setAvailableFunds((prevFunds) => prevFunds + sellValue);
+
+    // Call the prop function to update parent component state
+    onSellEquipment(item);
+  };
+  console.log("Available Funds: " + availableFunds)
+
+  // Update Firebase whenever availableFunds changes
+  useEffect(() => {
+    const saveAvailableFunds = async () => {
+      const userDocRef = doc(db, "campaigns", id);
+      try {
+        await updateDoc(userDocRef, {
+          availableFunds: availableFunds,
+        });
+      } catch (error) {
+        console.error("Error updating funds in Firebase:", error);
+      }
+    };
+
+    saveAvailableFunds();
+  }, [availableFunds, id]);
 
   const handleBuyEquipment = async (item) => {
-    onUpdateOwnedEquipment(item);
-    setAvailableEquipment((prevEquipment) =>
-      prevEquipment.filter((e) => e !== item)
-    );
-    console.log("DB:", db);
-    console.log("Campaign ID:", id);
-    const userDocRef = doc(db, "campaigns", id); // Use the correct user ID here
-    try {
-      await updateDoc(userDocRef, {
-        ownedEquipment: arrayUnion(item),
-      });
-      console.log("Equipment purchased and saved to Firebase");
-    } catch (error) {
-      console.error("Error updating equipment in Firebase:", error);
+    if (availableFunds >= item.cost) {
+      setAvailableFunds((prevFunds) => prevFunds - item.cost);
+      onUpdateOwnedEquipment(item);
+      setAvailableEquipment((prevEquipment) =>
+        prevEquipment.filter((e) => e !== item)
+      );
+
+      const userDocRef = doc(db, "campaigns", id);
+      try {
+        await updateDoc(userDocRef, {
+          ownedEquipment: arrayUnion(item),
+          availableFunds: availableFunds - item.cost,
+        });
+        console.log("Equipment purchased and saved to Firebase");
+      } catch (error) {
+        console.error("Error updating equipment in Firebase:", error);
+      }
+    } else {
+      alert("Not enough funds to purchase this equipment!");
     }
   };
   return (
     <div className="">
+      <div className="text-center my-4">
+        <h2 className="font-bold text-xl">Available $: {availableFunds}</h2>
+        <button
+          className="bg-green-500 text-white p-2 rounded"
+          onClick={addFundsForTesting}
+        >
+          Add $1000 (Test)
+        </button>
+      </div>
       <h2 className="font-bold underline text-center text-xl mt-6">
         Owned Equipment:
       </h2>
@@ -72,10 +136,10 @@ function Equipment({
               key={`owned-${index}`}
               className="flex justify-between items-center p-2"
             >
-              {item.item} - Cost: {item.cost}
+              {item.item} - Cost: ${item.cost} - Sell For: ${item.cost / 2}
               <button
                 className="bg-[#0FBDDB] ml-4 pl-2 pr-2 rounded-lg"
-                onClick={() => onSellEquipment(item)}
+                onClick={() => handleSellEquipment(item)}
               >
                 Sell
               </button>
@@ -83,7 +147,9 @@ function Equipment({
           ))}
         </ul>
       ) : (
-        <p className="text-center">No equipment currently owned! Buy some equipment.</p>
+        <p className="text-center">
+          No equipment currently owned! Buy some equipment.
+        </p>
       )}
       <h2 className="font-bold underline text-center text-xl">
         Available Equipment:
