@@ -42,7 +42,7 @@ function Equipment({
     }
     fetchData();
   }, [currentTier, ownedEquipment, soldEquipment]);
-  const [availableFunds, setAvailableFunds] = useState();
+  const [availableFunds, setAvailableFunds] = useState(0);
 
   useEffect(() => {
     const fetchAvailableFunds = async () => {

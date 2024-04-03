@@ -3,6 +3,7 @@ import auth from "../firebase/firebaseConfig";
 import { collection, getDocs, query, orderBy, where } from "firebase/firestore";
 import { db } from "../firebase/firebaseConfig"; // Adjust the path to your Firebase config
 import Link from "next/link";
+import campaignsData from "../public/data/campaigns.json"; // Import campaigns data
 
 export default function AllCampaigns() {
   const [campaigns, setCampaigns] = useState([]);
@@ -63,6 +64,13 @@ export default function AllCampaigns() {
           {campaigns.map((campaign) => (
             <div key={campaign.id} className="bg-gray-400 mt-10 p-4 rounded-lg">
               <Link href={`/campaign-details/${campaign.id}`} className=" ">
+                {campaignsData[campaign.campaign] && (
+                  <img
+                    src={campaignsData[campaign.campaign].image}
+                    alt={campaign.campaign}
+                    className="w-32 h-32 rounded-lg"
+                  />
+                )}
                 <p>{campaign.campaign}</p>
                 <p>Date Started: {campaign.date}</p>
                 <p>Status: {campaign.status}</p>

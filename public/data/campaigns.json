@@ -1,0 +1,23 @@
+{
+  "Base Campaign": {
+    "image": "/images/space.jpg"
+  },
+  "Twin Shadows": {
+    "image": "/images/space1.jpg"
+  },
+  "Return to Hoth": {
+    "image": "/images/space2.jpg"
+  },
+  "Bespin Gambit": {
+    "image": "/images/space3.jpg"
+  },
+  "Jabba's Realm": {
+    "image": "/images/space4.jpg"
+  },
+  "Heart of the Empire": {
+    "image": "/images/space5.jpg"
+  },
+  "Tyrants of Lothal": {
+    "image": "/images/space6.jpg"
+  }
+}

@@ -7,6 +7,7 @@ import characterData from "../../public/data/characters.json";
 import Character from "../../components/Character";
 import Equipment from "../../components/Equipment";
 import Mission from "../../components/Mission";
+import campaignsData from "../../public/data/campaigns.json";
 //import Character from "../../components/Newchars";
 
 export default function CampaignDetails() {
@@ -73,13 +74,15 @@ export default function CampaignDetails() {
   }, [campaign]);
 
   const handleCharacterClick = (characterName) => {
-    const characterDetails = characterData[characterName];
+    const characterDetails = characterData.find(
+      (char) => char.name === characterName
+    );
     if (characterDetails) {
       console.log("Character details: ", characterDetails),
         setSelectedCharacterDetails({
           name: characterName,
           startingWeapon: characterDetails["Starting weapon"],
-          xp: characterDetails.xp,
+          xp: characterDetails.startingXp,
           attachments: characterDetails.Attachments || [], // Ensure this line correctly references the structure of your data
           // Include other properties as needed
         });
@@ -133,18 +136,30 @@ export default function CampaignDetails() {
     <div className="flex flex-col justify-center items-center">
       <div className="w-full md:w-3/4 bg-[#416477] flex flex-col justify-center items-center">
         <div className="flex flex-col mt-10 items-center justify-center">
-          <div className="w-3/4 md:w-2/3 bg-gray-200 p-10 mt-10 mb-10 rounded-lg text-center">
-            <h1>Campaign Start Date: {campaign.date}</h1>
-            <p>Campaign: {campaign.campaign}</p>
-            <p>Status: {campaignStatus}</p>
-            <button
-              className="bg-[#416477] text-gray-200 font-bold p-2 m-2 rounded-lg hover:bg-slate-600"
-              onClick={toggleCampaignStatus}
-            >
-              {campaignStatus === "In Progress"
-                ? "Complete Campaign"
-                : "Revert to In Progress"}
-            </button>
+          <div className="w-3/4 md:w-2/3 bg-gray-200 p-10 mt-10 mb-10 rounded-lg text-center flex flex-row justify-center items-center">
+            <div className="mr-20">
+              {campaignsData[campaign.campaign] && (
+                <img
+                  src={campaignsData[campaign.campaign].image}
+                  alt={campaign.campaign}
+                  className="w-32 h-32 rounded-lg"
+                />
+              )}
+            </div>
+            <div>
+              <h1>Campaign Start Date: {campaign.date}</h1>
+              <p>Campaign: {campaign.campaign}</p>
+              <p>Status: {campaignStatus}</p>
+
+              <button
+                className="bg-[#416477] text-gray-200 font-bold p-2 m-2 rounded-lg hover:bg-slate-600"
+                onClick={toggleCampaignStatus}
+              >
+                {campaignStatus === "In Progress"
+                  ? "Complete Campaign"
+                  : "Revert to In Progress"}
+              </button>
+            </div>
           </div>
           <div className="flex flex-col md:flex-row w-full justify-center bg-gray-200">
             {/* Sidebar with Options */}
@@ -173,7 +188,7 @@ export default function CampaignDetails() {
                   characterData={characters}
                   onCharacterClick={handleCharacterClick}
                   selectedCharacterDetails={selectedCharacterDetails}
-                  campaignId={id}
+                  id={id}
                   showAttachments={showAttachments} // Pass the state and setter
                   setShowAttachments={setShowAttachments}
                 />
