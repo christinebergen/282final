@@ -10,62 +10,32 @@ function Character({
   id,
 }) {
   const [characters, setCharacters] = useState(characterData);
-  const [characterXP, setCharacterXP] = useState(
-    selectedCharacterDetails?.xp || 0
-  );
+  const [characterXP, setCharacterXP] = useState(0);
 
   useEffect(() => {
-    // Directly use the xp from selectedCharacterDetails
-    if (selectedCharacterDetails?.xp !== undefined) {
-      setCharacterXP(selectedCharacterDetails.xp);
-    }
-  }, [selectedCharacterDetails]);
-
-  const updateCharacterInFirebase = async (updatedCharacters) => {
-    const campaignDocRef = doc(db, "campaigns", id);
-    try {
-      await updateDoc(campaignDocRef, {
-        characters: updatedCharacters,
-      });
-    } catch (error) {
-      console.error("Error updating character in Firestore:", error);
-    }
-  };
-
-  const addXpForTesting = async (campaignId) => {
-    if (!selectedCharacterDetails || !selectedCharacterDetails.name) {
-      console.error("Selected character details or name is missing.");
-      return;
-    }
-
-    const characterName = selectedCharacterDetails.name;
-
-    if (typeof selectedCharacterDetails.xp !== "number") {
-      console.error("Invalid XP value:", selectedCharacterDetails.xp);
-      return;
-    }
-
-    const updatedXP = selectedCharacterDetails.xp + 5;
-
-    // Adjust the path to point to the character within a campaign
-    const characterDocRef = doc(
-      db,
-      `campaigns/${id}/characters`,
-      characterName
-    );
-
-    try {
-      await setDoc(characterDocRef, { xp: updatedXP }, { merge: true });
-      console.log(
-        `XP updated successfully for ${characterName} in campaign ${id}`
-      );
-    } catch (error) {
-      console.error(
-        `Error updating XP for ${characterName} in campaign ${id}:`,
-        error
-      );
-    }
-  };
+    const fetchCharacterXP = async () => {
+      if (selectedCharacterDetails && selectedCharacterDetails.id && id) {
+        console.log(`Fetching XP for character ID: ${selectedCharacterDetails.id} in campaign ${id}`);
+        const characterDocRef = doc(db, `campaigns/${id}/characters`, selectedCharacterDetails.id);
+        try {
+          const characterDocSnap = await getDoc(characterDocRef);
+          console.log("Fetched character data:", characterDocSnap.data());
+          if (characterDocSnap.exists()) {
+            const characterData = characterDocSnap.data();
+            setCharacterXP(characterData.xp || 0);
+            console.log(`Updated XP state: ${characterData.xp || 0}`);
+          } else {
+            console.log(`Character not found in Firestore at path: campaigns/${id}/characters/${selectedCharacterDetails.id}`);
+          }
+        } catch (error) {
+          console.error("Error fetching character data:", error);
+        }
+      }
+    };
+  
+    fetchCharacterXP();
+  }, [selectedCharacterDetails, id]);
+  
 
   const [showAttachments, setShowAttachments] = useState(false);
 
@@ -133,13 +103,13 @@ function Character({
             <h2 className="text-xl font-bold">
               {selectedCharacterDetails?.name}
             </h2>
-            <h3>Available xp: {selectedCharacterDetails.xp}</h3>
-            <button
+            <h3>Available xp: {characterXP}</h3>
+            {/* <button
               className="bg-green-500 text-white p-2 rounded"
               onClick={addXpForTesting}
             >
               Add 5xp (Test)
-            </button>
+            </button> */}
 
             <button
               className="bg-[#0FBDDB] mx-2 my-2 md:mx-4 md:my-4 md:p-4 rounded-lg font-bold hover:bg-teal-600 focus:outline-none"

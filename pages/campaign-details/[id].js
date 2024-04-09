@@ -1,13 +1,21 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { doc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  collection,
+  getDocs,
+  updateDoc,
+  arrayUnion,
+} from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig"; // Update with correct path
 import characterData from "../../public/data/characters.json";
 import Character from "../../components/Character";
 import Equipment from "../../components/Equipment";
 import Mission from "../../components/Mission";
 import campaignsData from "../../public/data/campaigns.json";
+import Imperial from "../../components/Imperial"
 //import Character from "../../components/Newchars";
 
 export default function CampaignDetails() {
@@ -25,6 +33,7 @@ export default function CampaignDetails() {
   const [showAttachments, setShowAttachments] = useState(false);
   const [ownedEquipment, setOwnedEquipment] = useState([]);
   const [soldEquipment, setSoldEquipment] = useState([]);
+  const [missions, setMissions] = useState([]);
 
   useEffect(() => {
     if (id) {
@@ -176,8 +185,17 @@ export default function CampaignDetails() {
               >
                 Equipment
               </button>
-              <button className="bg-[#416477] text-gray-200 text-xl font-bold p-2 m-2 rounded-lg hover:bg-slate-600">
+              <button
+                className="bg-[#416477] text-gray-200 text-xl font-bold p-2 m-2 rounded-lg hover:bg-slate-600"
+                onClick={() => setSelectedTab("missions")}
+              >
                 Missions
+              </button>
+              <button
+                className="bg-[#416477] text-gray-200 text-xl font-bold p-2 m-2 rounded-lg hover:bg-slate-600"
+                onClick={() => setSelectedTab("imperial")}
+              >
+                Imperial Player
               </button>
             </div>
 
@@ -204,7 +222,10 @@ export default function CampaignDetails() {
                 />
               )}
 
-              {selectedTab === "missions" && <Mission />}
+              {selectedTab === "missions" && (
+                <Mission id={id} missions={missions} />
+              )}
+              {selectedTab === "imperial" && <Imperial id={id} />}
             </div>
           </div>
         </div>

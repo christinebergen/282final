@@ -130,7 +130,7 @@ export default function AddCampaign() {
       console.log("Campaign document created:", campaignDocRef.id);
 
       console.log("Adding characters to the campaign's subcollection...");
-      const charactersToAdd = [...formData.characters, "Imperial Player"];
+      const charactersToAdd = [...formData.characters];
       for (const characterName of charactersToAdd) {
         // Create a reference to the characters subcollection of the campaign
         const charactersCollectionRef = collection(
@@ -173,7 +173,9 @@ export default function AddCampaign() {
     <>
       <div className="flex flex-col items-center justify-center mt-10">
         <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:rounded-lg bg-gray-200">
-          <h1 className="text-center pt-4 text-xl md:text-4xl">Add New Campaign</h1>
+          <h1 className="text-center pt-4 text-xl md:text-4xl">
+            Add New Campaign
+          </h1>
           <form
             onSubmit={handleSubmit}
             className="p-4 rounded-lg text-md md:text-lg"
@@ -230,7 +232,6 @@ export default function AddCampaign() {
                   Selected Characters:
                 </label>
                 <div className="selected-characters">
-                  <p>Imperial Player</p>
                   {selectedCharacters.map((character) => (
                     <div
                       className="hover:underline"
@@ -263,7 +264,6 @@ export default function AddCampaign() {
                 <div className="mission-selection">
                   {availableMissions.map((mission, index) => (
                     <div
-                    
                       key={index} // Use index as the key for unique identification
                       className="mission-item hover:underline"
                       onClick={() => handleMissionSelect(mission.name)}
