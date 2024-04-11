@@ -1,0 +1,118 @@
+{
+    "A Bounty Protected": {
+        "cost": 3,
+        "reward": "Dengar (Ruthless Killer)"
+    },
+    "Back Room Bargains": {
+        "cost": 3,
+        "reward": "Mercenary Ties"
+    },
+    "Binary Revolution": {
+        "cost": 3,
+        "reward": "IG-88 (Assassin Droid)"
+    },
+    "Breaking Point": {
+        "cost": 3,
+        "reward": "Supply Deficit"
+    },
+    "Bunker Buster": {
+        "cost": 3,
+        "reward": "501st Training"
+    },
+    "Cornered": {
+        "cost": 3,
+        "reward": "The Grand Inquisitor (Sith Loyalist)"
+    },
+    "Dark Obsession": {
+        "cost": 3,
+        "reward": "Darth Vader (Lord of the Sith)"
+    },
+    "Dubious Disposition": {
+        "cost": 3,
+        "reward": "Maul (Seeker of Vengeance)"
+    },
+    "Etiquette and Torture": {
+        "cost": 3,
+        "reward": "BT-1 and 0-0-0"
+    },
+    "Fire in the Sky": {
+        "cost": 3,
+        "reward": "Bounty"
+    },
+    "Forest Ambush": {
+        "cost": 3,
+        "reward": "General Weiss (Field Commander)"
+    },
+    "Fully charged": {
+        "cost": 3,
+        "reward": "General Sorin (Vicious Tactician)"
+    },
+    "Gunrunner": {
+        "cost": 3,
+        "reward": "Bossk (Born Hunter)"
+    },
+    "Impounded": {
+        "cost": 4,
+        "reward": "Special Operations"
+    },
+    "Infection": {
+        "cost": 3,
+        "reward": "Royal Guard Champion"
+    },
+    "Infiltrated": {
+        "cost": 3,
+        "reward": "Surveillance Operatives"
+    },
+    "Insidious": {
+        "cost": 3,
+        "reward": "Emperor Palpatine (Sith Master)"
+    },
+    "Into the Wastes": {
+        "cost": 3,
+        "reward": "Tusken Weaponry"
+    },
+    "Means of Production": {
+        "cost": 3,
+        "reward": "Imperial Industry"
+    },
+    "One Fat Slug": {
+        "cost": 3,
+        "reward": "Jabba the Hutt (Vile Gangster)"
+    },
+    "Predator and Prey": {
+        "cost": 3,
+        "reward": "Boba Fett (Infamous Bounty Hunter)"
+    },
+    "Salvage Operatives": {
+        "cost": 3,
+        "reward": "Mechanical Salvage"
+    },
+    "Security Breach": {
+        "cost": 3,
+        "reward": "Agent Blaise (ISB Interrogator)"
+    },
+    "Strength of Command": {
+        "cost": 3,
+        "reward": "Kayn Somos (Trooper Commander)"
+    },
+    "The Admiral's Grip": {
+        "cost": 3,
+        "reward": "Thrawn (Grand Admiral)"
+    },
+    "The Anchorhead Affair": {
+        "cost": 3,
+        "reward": "Captain Terro (Wasteland Enforcer)"
+    },
+    "The Pirate's Ploy": {
+        "cost": 3,
+        "reward": "Hondo Ohnaka (friend for hire)"
+    },
+    "Top Target": {
+        "cost": 3,
+        "reward": "Greedo (Ambitious Mercenary)"
+    },
+    "Wanted": {
+        "cost": 4,
+        "reward": "Old Wounds"
+    }
+}

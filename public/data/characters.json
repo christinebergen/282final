@@ -1,7 +1,9 @@
-{
-  "Diala Passil": {
+[
+  {
+    "name": "Diala Passil",
     "Starting weapon": "Plasteel Staff",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Force Throw", "cost": 1 },
       { "name": "Force Adept", "cost": 1 },
@@ -15,9 +17,11 @@
     "Side Mission": "Temptation",
     "Reward": "Shu Yen's Lightsaber"
   },
-  "Gideon Argus": {
+  {
+    "name": "Gideon Argus",
     "Starting weapon": "Holdout Blaster",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Called Shot", "cost": 1 },
       { "name": "Military Efficiency", "cost": 1 },
@@ -28,9 +32,11 @@
       { "name": "Masterstroke", "cost": 4 }
     ]
   },
-  "Fenn Signis": {
+  {
+    "name": "Fenn Signis",
     "Starting weapon": "Infantry Rifle",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Tactical Movement", "cost": 1 },
       { "name": "Take Cover", "cost": 1 },
@@ -43,9 +49,11 @@
     "Side Mission": "Brushfire",
     "Reward": "Veteran Prowess"
   },
-  "Gaarkan": {
+  {
+    "name": "Gaarkan",
     "Starting weapon": "Vibro-Ax",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Wookiee Loyalty", "cost": 1 },
       { "name": "Ferocity", "cost": 2 },
@@ -58,9 +66,11 @@
     "Side Mission": "Indebted",
     "Reward": "Life Debt"
   },
-  "Mak Eshka'rey": {
+  {
+    "name": "Mak Eshka'rey",
     "Starting weapon": "Longblaster",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Disengage", "cost": 1 },
       { "name": "Supply Network", "cost": 1 },
@@ -74,10 +84,11 @@
     "Side Mission": "Loose Cannon",
     "Reward": "Shadow Suit"
   },
-
-  "Jyn Odan": {
+  {
+    "name": "Jyn Odan",
     "Starting weapon": "Vintage Blaster",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Smuggler's Luck", "cost": 1 },
       { "name": "Quick As A Whip", "cost": 1 },
@@ -91,9 +102,11 @@
     "Side Mission": "High Noon",
     "Reward": "Peacemaker"
   },
-  "Biv Bodhrik": {
+  {
+    "name": "Biv Bodhrik",
     "Starting weapon": "Repeating Blaster",
     "Value": 100,
+    "startingXp": 0,
     "Additional Weapons": {
       "Vibrobayonet": 3
     },
@@ -109,9 +122,11 @@
     "Side Mission": "Past Life Enemies",
     "Reward": "Hunt Them Down"
   },
-  "Saska Teft": {
+ {
+    "name": "Saska Teft",
     "Starting weapon": "Modified Blaster",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Unstable Device", "cost": 1 },
       { "name": "Took Kit", "cost": 1 },
@@ -125,9 +140,11 @@
     "Side Mission": "Shady Dealings",
     "Reward": "Tech Goggles"
   },
-  "Loku Kanoloa": {
+  {
+    "name": "Loku Kanoloa",
     "Starting weapon": "All-Weather Rifle",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Combat Spotter", "cost": 1 },
       { "name": "Scouting Report", "cost": 1 },
@@ -141,10 +158,11 @@
     "Side Mission": "Constant Vigilance",
     "Reward": "Battle Vision"
   },
-
-  "MHD-19": {
+  {
+    "name": "MHD-19",
     "Starting weapon": "Sidearm Blaster",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Bacta Injector", "cost": 1 },
       { "name": "Improper Procedure", "cost": 1 },
@@ -158,9 +176,11 @@
     "Side Mission": "Preventative Measures",
     "Reward": "Systems Upgrade"
   },
-  "Verena Talos": {
+  {
+    "name": "Verena Talos",
     "Starting weapon": "Military Blaster",
     "Value": 100,
+    "startingXp": 0,
     "Additional Weapons": {
       "Fighting Knife": 100
     },
@@ -177,9 +197,11 @@
     "Side Mission": "Know Your Enemy",
     "Reward": "Iron Hand"
   },
-  "Davith Elso": {
+  {
+    "name": "Davith Elso",
     "Starting weapon": "Heirloom Dagger",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Elusive Agent", "cost": 1 },
       { "name": "Covert Operative", "cost": 1 },
@@ -194,9 +216,11 @@
     "Side Mission": "Reclassified",
     "Reward": "Radiant Holocron"
   },
-  "Murne Rin": {
+  {
+    "name": "Murne Rin",
     "Starting weapon": "Diplomat's Blaster",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Company of Heroes", "cost": 1 },
       { "name": "Sonic Bellow", "cost": 1 },
@@ -210,9 +234,11 @@
     "Side Mission": "Panic in the Streets",
     "Reward": "Cam Droid"
   },
-  "Onar Koma": {
+  {
+    "name": "Onar Koma",
     "Starting weapon": "Bodyguard Rifle",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Get Down", "cost": 1 },
       { "name": "Keep Up", "cost": 1 },
@@ -226,10 +252,11 @@
     "Side Mission": "Extortion",
     "Reward": "Haymaker"
   },
-
-  "Shyla Varad": {
+  {
+    "name": "Shyla Varad",
     "Starting weapon": "Duelist's Blade",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Responsiveness", "cost": 1 },
       { "name": "All-Out Attack", "cost": 1 },
@@ -243,9 +270,11 @@
     "Side Mission": "Born from Death",
     "Reward": "Mandalorian Heritage"
   },
-  "Vinto Hreeda": {
+  {
+    "name": "Vinto Hreeda",
     "Starting weapon": "Hair-Trigger Pistol",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Pinpoint Shot", "cost": 1 },
       { "name": "Shot on the Run", "cost": 1 },
@@ -259,9 +288,11 @@
     "Side Mission": "A Hero's Welcome",
     "Reward": "Desperado"
   },
-  "Drokkatta": {
+  {
+    "name": "Drokkatta",
     "Starting weapon": "MGL-9 \"Boomer\"",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Charging Up", "cost": 1 },
       { "name": "Leave No One Behind", "cost": 1 },
@@ -275,9 +306,11 @@
     "Side Mission": "Unfinished Business",
     "Reward": "Wookiee Roar"
   },
-  "Jarrod Kelvin": {
+  {
+    "name": "Jarrod Kelvin",
     "Starting weapon": "Vibro Claws",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Balanced Approach", "cost": 1 },
       { "name": "Forward Momentum", "cost": 1 },
@@ -291,10 +324,11 @@
     "Side Mission": "Test of Metal",
     "Reward": "X-8 Upgrade"
   },
-
-  "Ko-Tun Feralo": {
+  {
+    "name": "Ko-Tun Feralo",
     "Starting weapon": "Service Rifle",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Auxiliary Training", "cost": 1 },
       { "name": "Inch by Inch", "cost": 1 },
@@ -308,9 +342,11 @@
     "Side Mission": "Extraction",
     "Reward": "Alliance Efficiency"
   },
-  "CT-1701": {
+  {
+    "name": "CT-1701",
     "Starting weapon": "DC-15S Blaster",
     "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Covering Fire", "cost": 1 },
       { "name": "Reload", "cost": 1 },
@@ -324,9 +360,11 @@
     "Side Mission": "Sands of Seelos",
     "Reward": "Bullseye!"
   },
-  "Tress Hacnua": {
+  {
+    "name": "Tress Hacnua",
     "Starting weapon": "Reinforced Cyberarm",
-    "Value": 50,
+    "Value": 100,
+    "startingXp": 0,
     "Attachments": [
       { "name": "Aryx Variation", "cost": 1 },
       { "name": "Mynock Strike", "cost": 1 },
@@ -340,4 +378,4 @@
     "Side Mission": "Duel on Devaron",
     "Reward": "Wholeness"
   }
-}
+]

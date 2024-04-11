@@ -64,9 +64,9 @@ function Equipment({
     fetchAvailableFunds();
   }, [id]);
 
-  const addFundsForTesting = () => {
-    setAvailableFunds((prevFunds) => prevFunds + 1000);
-  };
+  // const addFundsForTesting = () => {
+  //   setAvailableFunds((prevFunds) => prevFunds + 1000);
+  // };
 
   const handleSellEquipment = async (item) => {
     const sellValue = item.cost / 2;
@@ -119,12 +119,12 @@ function Equipment({
     <div className="">
       <div className="text-center my-4">
         <h2 className="font-bold text-xl">Available $: {availableFunds}</h2>
-        <button
+        {/* <button
           className="bg-green-500 text-white p-2 rounded"
           onClick={addFundsForTesting}
         >
           Add $1000 (Test)
-        </button>
+        </button> */}
       </div>
       <h2 className="font-bold underline text-center text-xl mt-6">
         Owned Equipment:

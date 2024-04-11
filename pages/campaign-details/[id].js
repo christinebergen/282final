@@ -1,12 +1,21 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  collection,
+  getDocs,
+  updateDoc,
+  arrayUnion,
+} from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig"; // Update with correct path
 import characterData from "../../public/data/characters.json";
 import Character from "../../components/Character";
 import Equipment from "../../components/Equipment";
 import Mission from "../../components/Mission";
+import campaignsData from "../../public/data/campaigns.json";
+import Imperial from "../../components/Imperial";
 //import Character from "../../components/Newchars";
 
 export default function CampaignDetails() {
@@ -22,6 +31,9 @@ export default function CampaignDetails() {
   const [selectedTab, setSelectedTab] = useState("characters");
   const [characters, setCharacters] = useState([]);
   const [showAttachments, setShowAttachments] = useState(false);
+  const [ownedEquipment, setOwnedEquipment] = useState([]);
+  const [soldEquipment, setSoldEquipment] = useState([]);
+  const [missions, setMissions] = useState([]);
 
   useEffect(() => {
     if (id) {
@@ -54,41 +66,37 @@ export default function CampaignDetails() {
     console.log(campaign);
   }, [campaign]);
 
-  const handleCharacterClick = (characterName) => {
-    const characterDetails = characterData[characterName];
+  const handleCharacterClick = async (characterName) => {
+    // First, find the static details of the character
+    const characterDetails = characterData.find(
+      (char) => char.name === characterName
+    );
+  
     if (characterDetails) {
-      console.log("Character details: ", characterDetails),
-        setSelectedCharacterDetails({
-          name: characterName,
-          startingWeapon: characterDetails["Starting weapon"],
-          xp: characterDetails.xp,
-          attachments: characterDetails.Attachments || [], // Ensure this line correctly references the structure of your data
-          // Include other properties as needed
-        });
+      console.log("Character details: ", characterDetails);
+  
+      // Fetch the Firebase document ID for the character
+      const charactersRef = collection(db, `campaigns/${id}/characters`);
+      const querySnapshot = await getDocs(charactersRef);
+      let firebaseId = null;
+  
+      querySnapshot.forEach((doc) => {
+        if (doc.data().name === characterName) {
+          firebaseId = doc.id;
+        }
+      });
+  
+      // Update the state with the character details and the Firebase ID
+      setSelectedCharacterDetails({
+        name: characterName,
+        startingWeapon: characterDetails["Starting weapon"],
+        startingWeaponValue: characterDetails.Value,
+        xp: characterDetails.startingXp,
+        attachments: characterDetails.Attachments || [],
+        firebaseId: firebaseId,
+        // Include other properties as needed
+      });
       setShowAttachments(false);
-    }
-  };
-
-  console.log(characterData);
-  console.log("Show Attachments", showAttachments);
-  console.log("Attachments data", selectedCharacterDetails.attachments);
-
-  const handleBuyAttachments = () => {
-    setShowAttachments(!showAttachments);
-  };
-
-  const purchaseAttachment = (characterName, attachmentCost) => {
-    if (
-      selectedCharacterDetails &&
-      selectedCharacterDetails.name === characterName
-    ) {
-      setSelectedCharacterDetails((prevDetails) => ({
-        ...prevDetails,
-        xp: Math.max(prevDetails.xp - attachmentCost, 0), // Update XP
-        attachments: (prevDetails.attachments || []).concat({
-          /* attachment details here */
-        }),
-      }));
     }
   };
   const fetchEquipmentData = async (tier) => {
@@ -117,58 +125,94 @@ export default function CampaignDetails() {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="w-full md:w-3/4 bg-[#416477] flex flex-col justify-center items-center">
-        <div className="flex flex-col mt-10 items-center justify-center">
-          <div className="w-3/4 md:w-2/3 bg-gray-200 p-10 mt-10 mb-10 rounded-lg text-center">
-            <h1>Campaign Start Date: {campaign.date}</h1>
-            <p>Campaign: {campaign.campaign}</p>
-            <p>Status: {campaignStatus}</p>
-            <button
-              className="bg-[#416477] text-gray-200 font-bold p-2 m-2 rounded-lg hover:bg-slate-600"
-              onClick={toggleCampaignStatus}
-            >
-              {campaignStatus === "In Progress"
-                ? "Complete Campaign"
-                : "Revert to In Progress"}
-            </button>
-          </div>
+      <div className="w-full lg:w-3/4 bg-[#416477] flex flex-col justify-center items-center">
+        <div className="flex flex-col mt-4 md:mt-10 items-center justify-center">
           <div className="flex flex-col md:flex-row w-full justify-center bg-gray-200">
             {/* Sidebar with Options */}
             <div className="md:w-1/4 flex flex-row md:flex-col bg-gray-200 p-4">
               <button
-                className="bg-[#416477] text-gray-200 text-xl font-bold p-2 m-2 rounded-lg hover:bg-slate-600"
+                className="bg-[#416477] text-gray-200 text-md md:text-xl font-bold px-1 md:p-2 my-2 rounded-lg hover:bg-slate-600"
                 onClick={() => setSelectedTab("characters")}
               >
                 Characters
               </button>
               <button
-                className="bg-[#416477] text-gray-200 text-xl font-bold p-2 m-2 rounded-lg hover:bg-slate-600"
+                className="bg-[#416477] text-gray-200 text-md md:text-xl font-bold px-1 md:p-2 m-2 rounded-lg hover:bg-slate-600"
                 onClick={() => setSelectedTab("equipment")}
               >
                 Equipment
               </button>
               <button
-                className="bg-[#416477] text-gray-200 text-xl font-bold p-2 m-2 rounded-lg hover:bg-slate-600"
+                className="bg-[#416477] text-gray-200 text-md md:text-xl font-bold px-1 md:p-2 m-2 rounded-lg hover:bg-slate-600"
                 onClick={() => setSelectedTab("missions")}
               >
                 Missions
               </button>
+              <button
+                className="bg-[#416477] text-gray-200 text-md md:text-xl font-bold px-1 md:p-2 m-2 rounded-lg hover:bg-slate-600"
+                onClick={() => setSelectedTab("imperial")}
+              >
+                Imperial Player
+              </button>
             </div>
 
             {/* Content Area */}
-            <div className="w-3/4 bg-gray-100 p-4">
+            <div className="w-3/4 max-w-4xl mx-auto overflow-auto min-h-[300px] flex flex-col justify-center bg-gray-100 p-4">
+              <div className="w-full bg-gray-200 p-4 mt-4 mb-4 rounded-lg text-center flex flex-col md:flex-row justify-center items-center">
+                <div className="">
+                  {campaignsData[campaign.campaign] && (
+                    <img
+                      src={campaignsData[campaign.campaign].image}
+                      alt={campaign.campaign}
+                      className="w-24 md:w-32 h-auto rounded-lg md:mr-20"
+                    />
+                  )}
+                </div>
+                <div className="text-md md:text-xl">
+                  <h1 className="font-bold mt-2">Campaign: {campaign.campaign}</h1>
+
+                  <p>Campaign Start Date: {campaign.date}</p>
+
+                  <p>Status: {campaignStatus}</p>
+                  <p>Winner: </p>
+
+                  <button
+                    className="bg-[#416477] text-gray-200 font-bold p-2 m-2 rounded-lg hover:bg-slate-600"
+                    onClick={toggleCampaignStatus}
+                  >
+                    {campaignStatus === "In Progress"
+                      ? "Complete Campaign"
+                      : "Revert to In Progress"}
+                  </button>
+                </div>
+              </div>
+
               {selectedTab === "characters" && (
                 <Character
                   characterData={characters}
                   onCharacterClick={handleCharacterClick}
                   selectedCharacterDetails={selectedCharacterDetails}
-                  campaignId={id}
+                  id={id}
                   showAttachments={showAttachments} // Pass the state and setter
                   setShowAttachments={setShowAttachments}
+                 
                 />
               )}
-              {selectedTab === "equipment" && <Equipment />}
-              {selectedTab === "missions" && <Mission />}
+              {selectedTab === "equipment" && (
+                <Equipment
+                  id={id}
+                  selectedTier={selectedTier}
+                  ownedEquipment={ownedEquipment}
+                  onUpdateOwnedEquipment={handleUpdateOwnedEquipment}
+                  onSellEquipment={handleSellEquipment}
+                  soldEquipment={soldEquipment}
+                />
+              )}
+
+              {selectedTab === "missions" && (
+                <Mission id={id} missions={missions} />
+              )}
+              {selectedTab === "imperial" && <Imperial id={id} />}
             </div>
           </div>
         </div>
