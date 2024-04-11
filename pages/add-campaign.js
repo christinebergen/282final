@@ -128,9 +128,20 @@ export default function AddCampaign() {
       const campaignDocRef = doc(collection(db, "campaigns"));
       await setDoc(campaignDocRef, campaignData);
       console.log("Campaign document created:", campaignDocRef.id);
+      console.log("Creating Imperial player for the campaign...");
+      const imperialRef = doc(
+        db,
+        `campaigns/${campaignDocRef.id}/imperial`,
+        "imperialPlayer"
+      );
+      await setDoc(imperialRef, {
+        threat: 0, // Initialize threat or other properties for the Imperial player
+      });
+      console.log("Imperial player created.");
 
       console.log("Adding characters to the campaign's subcollection...");
       const charactersToAdd = [...formData.characters];
+
       for (const characterName of charactersToAdd) {
         // Create a reference to the characters subcollection of the campaign
         const charactersCollectionRef = collection(
