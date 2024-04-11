@@ -32,7 +32,7 @@ const Home = () => {
             className="border-4 border-gray-400 mt-10"
           />
           <h1 className="w-full md:w-2/3 mt-20 text-xl md:text-5xl font-bold text-center">
-            **COMING SOON!!**
+            Currently in Development / Testing Mode!!!
           </h1>
           <h2>
             An app for tracking progress during a Star Wars Imperial Assault
