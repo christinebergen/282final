@@ -225,48 +225,8 @@ function Character({
 
             {/* Display owned attachments */}
           </div>
-        </div> */}
-      {/* )} */}
-      {selectedCharacterDetails && (
-        <button
-          className="toggle-attachments-button"
-          onClick={handleBuyAttachments}
-        >
-          {showAttachments ? 'Hide Class Cards' : 'View Class Cards'}
-        </button>
-      )}
-
-      {/* Conditionally render attachments section */}
-      {showAttachments && selectedCharacterDetails && Array.isArray(selectedCharacterDetails.Attachments) && (
-        <div className="attachments-section">
-          <h3 className="text-xl font-bold">Class Cards:</h3>
-          {selectedCharacterDetails.Attachments.length > 0 ? (
-            <ul>
-              {selectedCharacterDetails.Attachments.map((attachment, index) => (
-                <li key={index}>
-                  {attachment.name} (Cost: {attachment.cost}xp)
-                  <button
-                    className="buy-attachment-button"
-                    onClick={() =>
-                      purchaseAttachment(
-                        selectedCharacterDetails.name,
-                        attachment.name,
-                        attachment.cost
-                      )
-                    }
-                  >
-                    Buy
-                  </button>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No attachments available</p>
-          )}
         </div>
       )}
-
-      
     </div>
   );
 }
