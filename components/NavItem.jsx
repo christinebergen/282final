@@ -1,21 +1,9 @@
 import Link from "next/link";
 
-const NavItem = ({ text, href, onClick }) => {
-  if (href) {
-    return (
-      <Link href={href}>
-        <div className="nav__link" onClick={onClick}>
-          {text}
-        </div>
-      </Link>
-    );
-  } else {
-    return (
-      <div className="nav__link" onClick={onClick}>
-        {text}
-      </div>
-    );
-  }
-};
+const NavItem = ({ href, text, onClick }) => (
+  <Link href={href || "#"} className="text-gray-200 bg-[#06436B] hover:text-white px-4 py-2 block whitespace-nowrap" onClick={onClick}>
+    {text}
+  </Link>
+);
 
 export default NavItem;

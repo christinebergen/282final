@@ -1,112 +1,86 @@
 import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
-import utilStyles from "../styles/utils.module.css";
-import NavItem from "./NavItem";
-import useAuth from "../hooks/useAuth"; // Import useAuth
-import { logout } from "../firebase/auth";
-import { signInWithGoogle } from "../firebase/auth";
 import { useRouter } from "next/router";
+import NavItem from "./NavItem";
+import useAuth from "../hooks/useAuth";
+import { logout, signInWithGoogle } from "../firebase/auth";
 
 const Navbar = () => {
-  const [navActive, setNavActive] = useState(null);
-  const [activeIdx, setActiveIdx] = useState(-1);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
   const { user } = useAuth();
+  const router = useRouter();
 
-  const MENU_LIST = [
-    // Only show "Add Campaign" if user is logged in
-    ...(user
-      ? [
-          { text: "All Campaigns", href: "/all-campaigns" },
-          { text: "Add Campaign", href: "/add-campaign" },
-          // {text: "View Campaigns", href: "/all-campaigns"},
-        ]
-      : []),
-  ];
-  const router = useRouter(); // Initialize useRouter
-  const handleLogout = () => {
-    logout()
-      .then(() => {
-        // After logging out, redirect to the home page
-        router.push("/");
-      })
-      .catch((error) => {
-        // Handle any errors here
-        console.error("Logout failed:", error);
-      });
+  const handleLogout = async () => {
+    try {
+      await logout();
+      router.push("/");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
   };
 
-  const menuRef = useRef();
+  const MENU_ITEMS = [
+    { text: "All Campaigns", href: "/all-campaigns" },
+    user && { text: "Add Campaign", href: "/add-campaign" },
+  ].filter(Boolean);
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setNavActive(false);
+      if (menuRef.current && !menuRef.current.contains(event.target) && isMenuOpen) {
+        setIsMenuOpen(false);
       }
     }
 
-    // Add event listener
     document.addEventListener("mousedown", handleClickOutside);
 
-    // Clean up
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [menuRef]);
+  }, [isMenuOpen]);
 
   return (
-    <header>
-      <nav className={`nav`}>
+    <header className="sticky top-0 z-30 bg-[#06436B] shadow">
+      <nav className="flex justify-between items-center p-4">
         <Image
           priority
           src="/images/profile.jpg"
-          className={utilStyles.borderCircle}
-          height={108}
-          width={108}
-          alt=""
+          className="rounded-full"
+          height={48}
+          width={48}
+          alt="Profile Image"
         />
-        <Link href={"/"}>
-          <h1 className="pl-8 text-[#CCDCE4] text-xl md:text-3xl">
-            Imperial Assault Campaign Tracker
-          </h1>
+        <Link href="/" className="text-lg md:text-2xl text-gray-200 hover:text-white">
+          Imperial Assault Campaign Tracker
         </Link>
         <div
-          onClick={() => setNavActive(!navActive)}
-          className={`nav__menu-bar`}
+          className="md:hidden flex flex-col space-y-1"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <div></div>
-          <div></div>
-          <div></div>
+          <span className="block w-8 h-0.5 bg-gray-200"></span>
+          <span className="block w-8 h-0.5 bg-gray-200"></span>
+          <span className="block w-8 h-0.5 bg-gray-200"></span>
         </div>
-        <div>
-          <div>
-            <div
-              ref={menuRef}
-              className={`${navActive ? "active" : ""} nav__menu-list`}
-            >
-              {MENU_LIST.map((menu, idx) => (
-                <div
-                  onClick={() => {
-                    setActiveIdx(idx);
-                    setNavActive(false);
-                  }}
-                  key={menu.text}
-                >
-                  <NavItem active={activeIdx === idx} {...menu} />
-                </div>
-              ))}
-              {user ? (
-                <>
-                  <NavItem text="Logout" onClick={handleLogout} />
-                  <div className="text-[#CCDCE4] text-sm md:text-md">
-                    You're logged in as: {user.email}
-                  </div>
-                </>
-              ) : (
-                <NavItem text="Login" onClick={signInWithGoogle} />
-              )}
-            </div>
-          </div>
+        <div
+          ref={menuRef}
+          className={`${
+            isMenuOpen ? "flex" : "hidden"
+          } flex-col md:flex md:flex-row md:items-center absolute md:relative top-14 md:top-0 right-0 md:w-auto w-full bg-[#06436B] p-4 md:p-0 shadow-lg`}
+        >
+          {MENU_ITEMS.map((item, idx) => (
+            <NavItem key={idx} {...item} onClick={() => setIsMenuOpen(false)} />
+          ))}
+          {user ? (
+            <>
+              <NavItem text="Logout" onClick={handleLogout} />
+              <span className="text-gray-200 text-sm md:text-md block mt-2">
+                Logged in as: {user.email}
+              </span>
+            </>
+          ) : (
+            <NavItem text="Login" onClick={signInWithGoogle} />
+          )}
         </div>
       </nav>
     </header>
@@ -114,3 +88,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+

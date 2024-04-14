@@ -51,45 +51,47 @@ export default function AllCampaigns() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="w-full lg:w-3/4 bg-[#416477] flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center mt-8">
+      <div className="w-full lg:w-3/4 bg-[#416477] rounded-lg pb-20 mb-8 flex flex-col justify-center items-center">
         <div className="flex flex-col mt-4 md:mt-10 items-center justify-center">
-          <div className="w-full flex flex-col justify-center items-center bg-gray-200">
+          <div className="w-full md:w-full px-10 md:px-20 rounded-lg flex flex-col justify-center items-center bg-gray-200">
             <Link
               href="/add-campaign"
-              className="button-class text-center w-1/3 text-md md:text-xl font-bold bg-[#2DC3EB] p-4 rounded-lg mt-10 mb-4"
+              className="button-class text-center md:w-3/4 text-md md:text-xl font-bold bg-[#2DC3EB] p-4 rounded-lg mt-10 mb-4"
             >
               Add New Campaign
             </Link>
 
-            <h1 className="mt-10 text-md md:text-2xl underline">
+            <h1 className="mt-4 md:mt-10 text-md md:text-2xl font-bold underline">
               All Campaigns:
             </h1>
-            <div className="">
+            <div>
               {campaigns.length > 0 ? (
-                <div className="mb-20 grid grid-cols-3 gap-4">
-                  {campaigns.map((campaign) => (
-                    <div
-                      key={campaign.id}
-                      className="bg-gray-400 mt-10 p-4 rounded-lg"
-                    >
-                      <Link
-                        href={`/campaign-details/${campaign.id}`}
-                        className=" "
+                <div className="flex justify-center pb-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full">
+                    {campaigns.map((campaign) => (
+                      <div
+                        key={campaign.id}
+                        className="bg-gray-400 mt-4 p-4 rounded-lg flex flex-col items-center text-center text-sm md:texl-xl"
                       >
-                        {campaignsData[campaign.campaign] && (
-                          <img
-                            src={campaignsData[campaign.campaign].image}
-                            alt={campaign.campaign}
-                            className="w-32 h-32 rounded-lg"
-                          />
-                        )}
-                        <p>{campaign.campaign}</p>
-                        <p>Date Started: {campaign.date}</p>
-                        <p>Status: {campaign.status}</p>
-                      </Link>
-                    </div>
-                  ))}
+                        <Link
+                          href={`/campaign-details/${campaign.id}`}
+                          className="w-full "
+                        >
+                          {campaignsData[campaign.campaign] && (
+                            <img
+                              src={campaignsData[campaign.campaign].image}
+                              alt={campaign.campaign}
+                              className="h-24 md:w-32 md:h-auto rounded-lg mx-auto"
+                            />
+                          )}
+                          <p>{campaign.campaign}</p>
+                          <p>Date Started: {campaign.date}</p>
+                          <p>Status: {campaign.status}</p>
+                        </Link>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ) : (
                 <p>No campaigns found.</p>

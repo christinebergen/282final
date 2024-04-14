@@ -182,144 +182,135 @@ export default function AddCampaign() {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center mt-10">
-        <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:rounded-lg bg-gray-200">
-          <h1 className="text-center pt-4 text-xl md:text-4xl">
-            Add New Campaign
-          </h1>
-          <form
-            onSubmit={handleSubmit}
-            className="p-4 rounded-lg text-md md:text-lg"
-          >
-            <div className="mb-4">
-              <label className="pr-20">Start Date:</label>
-              <input
-                type="date"
-                name="date"
-                value={formData.date}
-                onChange={handleChange}
-                className="border-2 border-black ml-4 p-2 rounded-md"
-              />
-            </div>
-            <div>
-              <label>Campaign Name:</label>
-              <select
-                name="campaign"
-                value={formData.campaign}
-                onChange={handleChange}
-                className="border-2 border-black ml-4 p-2 rounded-md"
-              >
-                <option value="">Select Campaign</option>
-                {campaigns.map((campaign) => (
-                  <option key={campaign.name} value={campaign.name}>
-                    {campaign.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div className="flex flex-row mt-10">
-              <div className="text-center p-4 bg-gray-100 border-2 rounded-lg border-black mr-2">
-                <label className="text-sm md:text-xl font-bold underline">
-                  Add 4 Rebel Characters:
+      <div className="flex flex-col items-center justify-center mt-8">
+        <div className="w-full lg:w-3/4 bg-[#416477] rounded-lg pb-20 flex flex-col justify-center items-center">
+          <div className="w-full md:w-3/4 md:mt-10 flex flex-col justify-center items-center md:rounded-lg bg-gray-200 p-4">
+            <h1 className="text-center pt-4 text-xl md:text-4xl">
+              Add New Campaign
+            </h1>
+            <form onSubmit={handleSubmit} className="w-full">
+              <div className="mb-4">
+                <label className="block md:inline-block md:w-auto pr-20">
+                  Start Date:
                 </label>
-                <div className="character-selection">
-                  {allCharacters.map(
-                    (characterName) =>
-                      !selectedCharacters.includes(characterName) && (
-                        <div
-                          className="hover:underline"
-                          key={characterName}
-                          onClick={() => handleCharacterClick(characterName)}
-                          style={{ cursor: "pointer" }}
-                        >
-                          {characterName}
-                        </div>
-                      )
-                  )}
-                </div>
+                <input
+                  type="date"
+                  name="date"
+                  value={formData.date}
+                  onChange={handleChange}
+                  className="border-2 border-black w-full md:w-auto p-2 rounded-md"
+                />
               </div>
-              <div className="text-center p-4 bg-gray-100 border-2 rounded-lg border-black">
-                <label className="text-sm md:text-xl font-bold underline">
-                  Selected Characters:
+              <div>
+                <label className="block md:inline-block md:w-auto">
+                  Campaign Name:
                 </label>
-                <div className="selected-characters">
-                  {selectedCharacters.map((character) => (
-                    <div
-                      className="hover:underline"
-                      key={character}
-                      style={{ cursor: "pointer" }}
-                    >
-                      {character}
-                      <img
-                        onClick={() => handleRemoveCharacter(character)}
-                        src="/images/xicon.png"
-                        style={{
-                          cursor: "pointer",
-                          width: "10px",
-                          height: "10px",
-                          display: "inline",
-                          marginLeft: "10px",
-                        }}
-                      />
-                    </div>
+                <select
+                  name="campaign"
+                  value={formData.campaign}
+                  onChange={handleChange}
+                  className="border-2 border-black w-full md:w-auto p-2 rounded-md mt-2 md:mt-0 md:ml-4"
+                >
+                  <option value="">Select Campaign</option>
+                  {campaigns.map((campaign) => (
+                    <option key={campaign.name} value={campaign.name}>
+                      {campaign.name}
+                    </option>
                   ))}
-                </div>
+                </select>
               </div>
-            </div>
-            {/* Mission selection UI */}
-            <div className="flex flex-row mt-10">
-              <div className="text-center p-4 bg-gray-100 border-2 rounded-lg border-black mr-2">
-                <label className="text-sm md:text-xl font-bold underline">
-                  Add 6 Missions:
-                </label>
-                <div className="mission-selection">
-                  {availableMissions.map((mission, index) => (
-                    <div
-                      key={index} // Use index as the key for unique identification
-                      className="mission-item hover:underline"
-                      onClick={() => handleMissionSelect(mission.name)}
-                      style={{ cursor: "pointer" }}
-                    >
-                      {mission.name}
-                    </div>
-                  ))}
+              {/* Character and Mission Selection UI */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+                <div className="text-center p-4 bg-gray-100 border-2 rounded-lg border-black">
+                  <label className="text-sm md:text-xl font-bold underline">
+                    Add 4 Rebel Characters:
+                  </label>
+                  <div className="character-selection overflow-auto max-h-40">
+                    {allCharacters.map(
+                      (characterName) =>
+                        !selectedCharacters.includes(characterName) && (
+                          <div
+                            className="hover:underline cursor-pointer"
+                            key={characterName}
+                            onClick={() => handleCharacterClick(characterName)}
+                          >
+                            {characterName}
+                          </div>
+                        )
+                    )}
+                  </div>
                 </div>
-              </div>
-              <div className="text-center p-4 bg-gray-100 border-2 rounded-lg border-black">
-                <label className="text-sm md:text-xl font-bold underline">
-                  Selected Missions:
-                </label>
-                <div className="selected-missions">
-                  {selectedMissions.map((missionName) => (
-                    <div
-                      className="hover:underline"
-                      key={missionName}
-                      style={{ cursor: "pointer" }}
-                    >
-                      {missionName}
-                      <span
-                        onClick={() => handleRemoveMission(missionName)}
-                        style={{
-                          cursor: "pointer",
-                          marginLeft: "10px",
-                        }}
+                <div className="text-center p-4 bg-gray-100 border-2 rounded-lg border-black">
+                  <label className="text-sm md:text-xl font-bold underline">
+                    Selected Characters:
+                  </label>
+                  <div className="selected-characters overflow-auto max-h-40">
+                    {selectedCharacters.map((character) => (
+                      <div
+                        className="hover:underline cursor-pointer flex justify-between items-center"
+                        key={character}
                       >
-                        &#10005; {/* This is a simple 'X' symbol */}
-                      </span>
-                    </div>
-                  ))}
+                        {character}
+                        <img
+                          onClick={() => handleRemoveCharacter(character)}
+                          src="/images/xicon.png"
+                          alt="Remove"
+                          className="ml-2 w-4 h-4"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="flex items-center justify-center">
-              <button
-                type="submit"
-                className="bg-gray-800 mt-10 mb-10 rounded-md text-white font-semi text-xl p-4"
-              >
-                Next
-              </button>
-            </div>
-          </form>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+                <div className="text-center p-4 bg-gray-100 border-2 rounded-lg border-black">
+                  <label className="text-sm md:text-xl font-bold underline">
+                    Add 6 Missions:
+                  </label>
+                  <div className="mission-selection overflow-auto max-h-40">
+                    {availableMissions.map((mission, index) => (
+                      <div
+                        key={index}
+                        className="mission-item hover:underline cursor-pointer"
+                        onClick={() => handleMissionSelect(mission.name)}
+                      >
+                        {mission.name}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="text-center p-4 bg-gray-100 border-2 rounded-lg border-black">
+                  <label className="text-sm md:text-xl font-bold underline">
+                    Selected Missions:
+                  </label>
+                  <div className="selected-missions overflow-auto max-h-40">
+                    {selectedMissions.map((missionName) => (
+                      <div
+                        className="hover:underline cursor-pointer flex justify-between items-center"
+                        key={missionName}
+                      >
+                        {missionName}
+                        <span
+                          onClick={() => handleRemoveMission(missionName)}
+                          className="ml-2 cursor-pointer"
+                        >
+                          &#10005;
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <button
+                  type="submit"
+                  className="bg-gray-800 mt-10 mb-10 rounded-md text-white text-xl p-4"
+                >
+                  Start Campaign
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </>
