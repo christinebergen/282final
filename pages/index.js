@@ -39,7 +39,7 @@ const Home = () => {
             Campaign. For testing purposes only.
           </h2>
           <p><strong>Please Note:</strong> some features may not yet work as intended, but check back as more features are being added regularly.</p>
-          <p className="font-bold text-md md:text-xl mb-10 mt-10">Please log in if you'd like to test our web app!.</p>
+          <p className="font-bold text-md md:text-xl mb-10 mt-10">Please log in if you'd like to test our web app!</p>
          
         </div>
       </div>

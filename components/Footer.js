@@ -22,8 +22,8 @@ function Footer() {
             <p>&copy; 2024 IA Campaign Tracker. All rights reserved.</p>
           </div>
           <div className="w-full md:w-auto flex flex-col justify-center">
-            <h5 className=" font-bold">Contact Information</h5>
-            <p>Developer: Christine Bergen</p>
+            <h5 className=" font-bold">Contact Developer:</h5>
+            <p>Christine Bergen</p>
             <p>
               Email:{" "}
               <a
