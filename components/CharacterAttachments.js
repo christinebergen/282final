@@ -20,7 +20,7 @@ function CharacterAttachments({
       <h4 className="font-bold underline pb-2">Class Cards Available to Buy:</h4>
       <ul>
         {availableAttachments.map((attachment, index) => (
-          <li key={index}>
+          <li className="text-xs md:text-base lg:text-lg" key={index}>
             {attachment && attachment.name && attachment.cost && (
               <>
                 {attachment.name}, cost: {attachment.cost}xp

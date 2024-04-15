@@ -38,9 +38,9 @@ const Home = () => {
             An app for tracking progress during a Star Wars Imperial Assault
             Campaign. For testing purposes only.
           </h2>
-          <p><strong>Please Note:</strong> some features may not work as intended.</p>
+          <p><strong>Please Note:</strong> some features may not yet work as intended, but check back as more features are being added regularly.</p>
           <p className="font-bold text-md md:text-xl mb-10 mt-10">Please log in if you'd like to test our web app!.</p>
-          <a href='mailto:christine.bergen@itas.ca?subject=Re:%20Imperial%20Assault%20Tracker' className="underline font-bold text-blue-800">Contact Developer</a>
+         
         </div>
       </div>
     </div>

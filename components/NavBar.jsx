@@ -22,13 +22,17 @@ const Navbar = () => {
   };
 
   const MENU_ITEMS = [
-    { text: "All Campaigns", href: "/all-campaigns" },
+    user && { text: "All Campaigns", href: "/all-campaigns" },
     user && { text: "Add Campaign", href: "/add-campaign" },
   ].filter(Boolean);
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target) && isMenuOpen) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        isMenuOpen
+      ) {
         setIsMenuOpen(false);
       }
     }
@@ -51,7 +55,10 @@ const Navbar = () => {
           width={48}
           alt="Profile Image"
         />
-        <Link href="/" className="text-lg md:text-2xl text-gray-200 hover:text-white">
+        <Link
+          href="/"
+          className="text-lg md:text-xl lg:text-4xl text-gray-200 hover:text-white"
+        >
           Imperial Assault Campaign Tracker
         </Link>
         <div
@@ -66,20 +73,25 @@ const Navbar = () => {
           ref={menuRef}
           className={`${
             isMenuOpen ? "flex" : "hidden"
-          } flex-col md:flex md:flex-row md:items-center absolute md:relative top-14 md:top-0 right-0 md:w-auto w-full bg-[#06436B] p-4 md:p-0 shadow-lg`}
+          } flex-col md:flex md:flex-row md:items-center absolute md:relative top-14 md:top-0 right-0 md:w-auto w-full bg-[#06436B] p-4 md:p-0`}
         >
           {MENU_ITEMS.map((item, idx) => (
             <NavItem key={idx} {...item} onClick={() => setIsMenuOpen(false)} />
           ))}
           {user ? (
-            <>
-              <NavItem text="Logout" onClick={handleLogout} />
-              <span className="text-gray-200 text-sm md:text-md block mt-2">
-                Logged in as: {user.email}
-              </span>
-            </>
+            <button
+              onClick={handleLogout}
+              className="text-gray-200 hover:text-white px-4 py-2 block whitespace-nowrap"
+            >
+              Logout
+            </button>
           ) : (
-            <NavItem text="Login" onClick={signInWithGoogle} />
+            <button
+              onClick={signInWithGoogle}
+              className="text-gray-200 hover:text-white px-4 py-2 block whitespace-nowrap"
+            >
+              Login
+            </button>
           )}
         </div>
       </nav>
@@ -88,7 +100,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-

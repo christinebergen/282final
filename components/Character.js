@@ -176,11 +176,11 @@ function Character({
       <h2 className="font-bold underline text-center text-md md:text-xl">
         Characters in play:
       </h2>
-      <div className="flex flex-row justify-center items-center">
+      <div className="flex flex-wrap justify-between">
         {characterData && characterData.length > 0 ? (
           characterData.map((characterName, index) => (
             <button
-              className="bg-[#0FBDDB] text-sm md:text-xl mx-2 my-2 md:mx-4 md:my-4 md:p-4 rounded-lg font-bold hover:bg-teal-600 focus:outline-none"
+            className="bg-[#416477] text-white m-1 md:m-4 p-2 rounded-md text-sm font-medium flex-1 min-w-0"
               key={`character-${index}`}
               onClick={() => onCharacterClick(characterName)}
             >
@@ -195,8 +195,8 @@ function Character({
       {/* Render selected character details */}
       {selectedCharacterDetails && (
         <div className="bg-gray-200 rounded-lg md:p-8 flex flex-col md:flex-row">
-          <div>
-            <h2 className="text-xl font-bold text-center md:text-left">
+          <div className="text-sm md:text-xl">
+            <h2 className="font-bold text-center md:text-left">
               {selectedCharacterDetails.name}
             </h2>
             <h3>Available xp: {characterXP}</h3>

@@ -161,27 +161,27 @@ export default function CampaignDetails() {
         <div className="flex flex-col mt-4 md:mt-10 items-center justify-center">
           <div className="flex flex-col md:flex-row w-full justify-center bg-gray-200">
             {/* Sidebar with Options */}
-            <div className="md:w-80 flex flex-row md:flex-col bg-gray-200 p-4">
+            <div className="md:w-80 flex flex-wrap justify-between md:flex-col bg-gray-200 ">
               <button
-                className="bg-[#416477] text-gray-200 text-md md:text-xl font-bold px-1 md:p-2 my-2 rounded-lg hover:bg-slate-600"
+                className="bg-[#416477] m-1 md:m-4 text-white font-bold p-2 rounded-md text-sm md:text-xl flex-1 min-w-0 hover:bg-slate-600"
                 onClick={() => setSelectedTab("characters")}
               >
                 Characters
               </button>
               <button
-                className="bg-[#416477] text-gray-200 text-md md:text-xl font-bold px-1 md:p-2 m-2 rounded-lg hover:bg-slate-600"
+                className="bg-[#416477] m-1 md:m-4 text-white font-bold p-2 rounded-md text-sm md:text-xl flex-1 min-w-0 hover:bg-slate-600"
                 onClick={() => setSelectedTab("equipment")}
               >
                 Equipment
               </button>
               <button
-                className="bg-[#416477] text-gray-200 text-md md:text-xl font-bold px-1 md:p-2 m-2 rounded-lg hover:bg-slate-600"
+                className="bg-[#416477] m-1 md:m-4 text-white font-bold p-2 rounded-md text-sm md:text-xl flex-1 min-w-0 hover:bg-slate-600"
                 onClick={() => setSelectedTab("missions")}
               >
                 Missions
               </button>
               <button
-                className="bg-[#416477] text-gray-200 text-md md:text-xl font-bold px-1 md:p-2 m-2 rounded-lg hover:bg-slate-600"
+                className="bg-[#416477] m-1 md:m-4 text-white font-bold p-2 rounded-md text-sm md:text-xl flex-1 min-w-0 hover:bg-slate-600"
                 onClick={() => setSelectedTab("imperial")}
               >
                 Imperial Player
@@ -189,7 +189,7 @@ export default function CampaignDetails() {
             </div>
 
             {/* Content Area */}
-            <div className="w-3/4 max-w-4xl mx-auto overflow-auto min-h-[300px] flex flex-col justify-center bg-gray-100 p-4">
+            <div className="w-full md:w-3/4 max-w-4xl mx-auto overflow-auto min-h-[300px] flex flex-col justify-center bg-gray-100 p-4">
               <div className="w-full bg-gray-200 p-4 mt-4 mb-4 rounded-lg text-center flex flex-col md:flex-row justify-center items-center">
                 <div className="">
                   {campaignsData[campaign.campaign] && (
@@ -200,7 +200,7 @@ export default function CampaignDetails() {
                     />
                   )}
                 </div>
-                <div className="text-md md:text-xl">
+                <div className="text-xs md:text-xl">
                   <h1 className="font-bold mt-2">Campaign: {campaign.campaign}</h1>
 
                   <p>Campaign Start Date: {campaign.date}</p>
@@ -209,7 +209,7 @@ export default function CampaignDetails() {
                   <p>Winner: </p>
 
                   <button
-                    className="bg-[#416477] text-gray-200 font-bold p-2 m-2 rounded-lg hover:bg-slate-600"
+                    className="bg-[#416477] text-gray-200 p-2 rounded-md text-sm font-medium flex-1 min-w-0"
                     onClick={toggleCampaignStatus}
                   >
                     {campaignStatus === "In Progress"
