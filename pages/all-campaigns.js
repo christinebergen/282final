@@ -55,13 +55,17 @@ export default function AllCampaigns() {
       <div className="w-full lg:w-3/4 bg-[#416477] rounded-lg pb-20 mb-8 flex flex-col justify-center items-center">
         <div className="flex flex-col mt-4 md:mt-10 items-center justify-center">
           <div className="w-full md:w-full px-10 md:px-20 rounded-lg flex flex-col justify-center items-center bg-gray-200">
+            {campaigns.length === 0 && (
+              <p className="mt-4 md:mt-10 text-md md:text-2xl font-bold underline">
+                No campaigns created yet, click below to add one!
+              </p>
+            )}{" "}
             <Link
               href="/add-campaign"
               className="button-class text-center md:w-3/4 text-md md:text-xl font-bold bg-[#2DC3EB] p-4 rounded-lg mt-10 mb-4"
             >
               Add New Campaign
             </Link>
-
             <h1 className="mt-4 md:mt-10 text-md md:text-2xl font-bold underline">
               All Campaigns:
             </h1>
